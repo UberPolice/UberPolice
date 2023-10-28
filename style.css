@@ -1,0 +1,29 @@
+body {
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+      color: #fff;
+    }
+    
+    .header {
+      background-color: #222;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .content {
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .pussy {
+      color: white;
+      width: 100%;
+    }
