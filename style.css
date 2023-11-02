@@ -7,8 +7,22 @@ body{
     margin:0;
 }
 
+.padding {
+  padding: 20px;
+}
+
+.pussypadding {
+  border-radius: 40px;
+  padding: 30px;
+}
+
 .fear {
   border-radius: 16px;
+}
+
+.lrpadding {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .fuckrealyt {
@@ -42,7 +56,26 @@ a {
 	margin-bottom: 20px;
 }
 
+.btn2 {
+	border-style: solid;
+	border-color: grey;
+	background-color: Transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+	color: white;
+	font-size: 100%;
+	width: 400px;
+	height: 100px;
+	margin-bottom: 20px;
+}
+
 .btn:hover {
+	background: #0000EE;
+	color: white;
+}
+
+.btn2:hover {
 	background: #0000EE;
 	color: white;
 }
