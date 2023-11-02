@@ -1,29 +1,116 @@
-body {
-      margin: 0;
-      padding: 0;
-      background-color: #333;
-      color: #fff;
-    }
-    
+body{
+    background-image: url('bgstatic.gif');
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    padding:0;
+    margin:0;
+}
+
+.fear {
+  border-radius: 16px;
+}
+
+.fuckrealyt {
+  color: white;
+}
+
+a {
+  color: Transparent;
+}
+
     .header {
-      background-color: #222;
+      color: black;
+      background-color: #969696;
       padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    
-    .content {
-      padding: 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      height: 100vh;
-    }
-    
-    .pussy {
-      color: white;
-      width: 100%;
-    }
+
+.btn {
+	border-style: solid;
+	border-color: grey;
+	background-color: Transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+	color: white;
+	font-size: 100%;
+	width: 90px;
+	height: 60px;
+	margin-bottom: 20px;
+}
+
+.btn:hover {
+	background: #0000EE;
+	color: white;
+}
+
+     * {
+  margin: 0;
+
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hamburger, .close {
+  border: none;
+  cursor: pointer;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+}
+
+.hamburger {
+  background: #969696;
+}
+
+.close {
+  background: black;
+}
+
+.hamburger img, .close img {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  list-style: none;
+  background: black;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: transform 0.2s ease;
+}
+
+.navbar:target {
+  transform: translateY(0);
+}
+
+li a {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5rem;
+}
+
+li a:hover, li a:focus {
+  border-bottom: 1px solid white;
+}
