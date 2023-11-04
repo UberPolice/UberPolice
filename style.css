@@ -1,3 +1,11 @@
+.gg521iscool {
+  color: blue;
+}
+
+.fuckrealyt {
+  color: white;
+}
+
 .box {
   width: 40%;
   margin: 0 auto;
@@ -81,15 +89,10 @@
   }
 }
 
-
-
-
-
-
-
-body{
+body {
     background-image: url('bgstatic.gif');
     background-size: cover;
+    background-attachment: fixed;
     color: white;
     height: 100vh;
     padding:0;
@@ -98,6 +101,10 @@ body{
 
 .padding {
   padding: 16px;
+}
+
+.navpadding {
+  padding: 8px;
 }
 
 .pussypadding {
@@ -114,10 +121,6 @@ body{
   padding-right: 8px;
 }
 
-.fuckrealyt {
-  color: white;
-}
-
 a {
   color: Transparent;
 }
@@ -126,6 +129,25 @@ a {
       color: black;
       background-color: #969696;
       padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .header2 {
+      height: 10px;
+      color: black;
+      background-color: #969696;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+.header3 {
+      height: 3px;
+      color: black;
+      background-color: black;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -179,7 +201,6 @@ a {
 .hamburger, .close {
   border: none;
   cursor: pointer;
-
   position: absolute;
   top: 20px;
   right: 20px;
