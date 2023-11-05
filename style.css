@@ -6,6 +6,10 @@
   color: white;
 }
 
+img {
+    pointer-events: none;
+}
+
 .box {
   width: 40%;
   margin: 0 auto;
@@ -55,6 +59,10 @@
   width: 30%;
   position: relative;
   transition: all 5s ease-in-out;
+}
+
+.penelope {
+  position: fixed;
 }
 
 .popup h2 {
