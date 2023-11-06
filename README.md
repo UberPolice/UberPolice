@@ -1,1 +1,3 @@
-
+- Learning HTML and CSS.
+- You can contact me on Discord: uberpolice
+- github.com/UberPolice/UberPolice is the repository for my website.
