@@ -11,7 +11,3 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
   modal.style.display = "none";
 }
-
-
-
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "489cdc74c22a4825b8f77d5703070547"}'></script><!-- End Cloudflare Web Analytics -->

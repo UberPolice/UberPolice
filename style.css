@@ -7,7 +7,7 @@ body {
 }
 
 img {
-  border-radius: 16px;
+  border-radius: 5px;
   border: none;
   padding: none;
   margin-left: auto;
@@ -45,8 +45,8 @@ img {
 .modal-content {
   margin: auto;
   display: block;
-  width: 80%;
-  max-width: 700px;
+  width: 60%;
+  max-width: 500px;
 }
 
 #caption {
@@ -87,7 +87,7 @@ img {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 600px){
   .modal-content {
     width: 100%;
   }
