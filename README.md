@@ -1,3 +1,4 @@
 - Learning HTML and CSS.
 - You can contact me on Discord: uberpolice
 - github.com/UberPolice/UberPolice is the repository for my website.
+- The github.com/UberPolice/UberPolice repository is "code-available" NOT "open-source" which means use of my code without my permission is prohibited.
