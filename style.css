@@ -20,6 +20,14 @@ img {
   filter: none;
 }
 
+iframe {
+    display: block;
+    border-style:none;
+    margin: 0 auto;
+    width: 410px;
+    height: 240px;
+}
+
 #myImg {
   border-radius: 5px;
   cursor: pointer;
