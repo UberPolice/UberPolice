@@ -21,6 +21,7 @@ img {
 }
 
 iframe {
+  background-color: black;
     display: block;
     border-style:none;
     margin: 0 auto;
