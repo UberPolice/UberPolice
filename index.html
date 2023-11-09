@@ -3,7 +3,7 @@
 <head>
   <link rel="icon" type="image/jpg" href="penelope.jpg">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="burger.css">
+  <link rel="stylesheet" href="borgor.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UberPolice's Bio</title>
@@ -14,21 +14,21 @@
   <meta content="blue" data-react-helmet="true" name="theme-color">
 </head>
 <body>
-  <div class="header">
-    <h1 style="margin: 0;">UberPolice's Bio</h1>
-    <div class="burger" onclick="toggleBurger(this)">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="menu" id="menu">
-      <ul>
-        <li><a href="https://dogebot.uninhibited.sbs/">Doge Bot</a></li>
-        <li><a href="https://discord.gg/vWAhH44nCp">Discord</a></li>
-        <li><a href="https://gg521.itch.io/">My Awesome Friend</a></li>
-      </ul>
-    </div>
+  <nav role="navigation">
+  <div id="menuToggle">
+    <input type="checkbox" />
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+      <a href="https://uberpolice.uninhibited.sbs"><li>Home</li></a>
+      <a href="https://dogebot.uninhibited.sbs"><li>Doge Bot</li></a>
+      <a href="https://discord.gg/ukurRfJBMw"><li>Discord</li></a>
+      <a href="https://bsky.app/profile/uberpolice.bsky.social"><li>Bluesky</li></a>
+    </ul>
   </div>
+</nav>
+  <br>
   <br>
   <br>
   <h1>
@@ -65,6 +65,5 @@
     Website version: 5.0</p>
   </h4>
   <script src="script.js"></script>
-  <script src="burger.js"></script>
 </body>
 </html>
