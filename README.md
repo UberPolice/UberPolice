@@ -7,4 +7,3 @@
 - ⚡ Fun fact: I have the same birthday as Albert Einstein.
 
 [![Discord Presence](https://lanyard.cnrad.dev/api/814317906648891403)](https://discord.com/users/814317906648891403)
-814317906648891403
