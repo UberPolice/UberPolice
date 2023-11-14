@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@700&family=Bai+Jamjuree&family=Noto+Sans+Linear+B&display=swap');
 html, body {
     overflow-x: hidden;
     height: 100%;
@@ -9,7 +9,9 @@ body {
     background-position: fixed;
     padding: 0;
     margin: auto;
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Agdasima', sans-serif;
+    font-family: 'Bai Jamjuree', sans-serif;
+    font-family: 'Noto Sans Linear B', sans-serif;
     text-align: center;
 }
 img {
@@ -25,6 +27,26 @@ img {
   height: auto;
   opacity: 100%;
   filter: none;
+}
+p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.blue {
+  color: blue;
+}
+.steam {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 700px;
+  height: 200px;
+  max-width: 90%;
 }
 .idfk {
     display: block;
@@ -66,7 +88,7 @@ img {
 .mainInner div{
     display:table-cell;
     vertical-align: middle;
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bold;
     letter-spacing: 1.25px;
 }
