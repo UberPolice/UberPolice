@@ -1,9 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
 body {
-  color: white;
-    background: black;
-    background-position: fixed;
+    color: white;
+    background-color: black;
+    background-image: url('bg.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
     margin: auto;
     text-align: center;
 }
