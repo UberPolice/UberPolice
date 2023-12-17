@@ -11,11 +11,9 @@ body {
     text-align: center;
 }
 .discord-pfp {
-  display: block;
-    border-style: none;
-    margin: 0 auto;
-    width: 410px;
-    height: 210px;
+    margin: auto;
+    width: 400px;
+    height: 200px;
 }
 .slides {
     padding: 0;
