@@ -8,6 +8,8 @@
             html {
                 background: #0d8eff;
                 background-image: linear-gradient(180deg, #0f9cff, #0682ff);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
                 text-align: center;
                 padding: 10px;
                 text-align: center;
