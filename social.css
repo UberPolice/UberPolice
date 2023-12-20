@@ -6,8 +6,8 @@
                 box-sizing: border-box;
             }
             html {
-                background: #0d8eff;
-                background-image: linear-gradient(180deg, #0f9cff, #0682ff);
+                background: black;
+                background-image: linear-gradient(180deg, black, black);
                 text-align: center;
                 padding: 10px;
                 background-repeat: no-repeat;
@@ -49,7 +49,7 @@
                 text-decoration: underline;
             }
             span a {
-                color: #3498db;
+                color: #9696969;
             }
             img {
                 width: 100px;
