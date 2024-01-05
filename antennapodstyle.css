@@ -77,3 +77,17 @@
                 box-shadow: none;
                 text-align: left;
             }
+            .btn {
+    border-style: solid;
+    border-color: white;
+    background: black;
+    color: white;
+    font-size: 150%;
+    max-width: 60%;
+    width: 350px;
+    height: 80px;
+}
+.btn:hover {
+    background: #969696;
+    color: white;
+}

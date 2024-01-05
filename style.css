@@ -24,10 +24,17 @@ body {
 	background: #969696;
 	color: white;
 }
+.steam {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 700px;
+  height: 200px;
+  max-width: 90%;
+}
 .discord-pfp {
     margin: auto;
-    width: 410px;
-    height: 210px;
+    width: 400px;
+    height: 200px;
 }
 .slides {
     padding: 0;
