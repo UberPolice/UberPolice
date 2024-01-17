@@ -31,6 +31,16 @@ body {
   height: 200px;
   max-width: 90%;
 }
+.nas {
+  border-style: solid;
+  border-color: black;
+  background: black;
+  color: gray;
+  font-size: 100%;
+  max-width: 60%;
+  width: 100px;
+  height: 50px;
+}
 .discord-pfp {
     margin: auto;
     width: 400px;
