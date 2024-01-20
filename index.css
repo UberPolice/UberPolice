@@ -2,7 +2,7 @@
 body {
     color: white;
     background-color: black;
-    background-image: url('http://50.158.8.34:8080/matrix.gif');
+    background-image: url('matrix.gif');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: 100%;
