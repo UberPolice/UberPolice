@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>In Silence</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> In Silence</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>7h 22m 0s</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-2/22/2024">2/22/2024</a> 13:13:38</TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 11:48:58</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 11:55:01</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Played">Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-10/16/2020">10/16/2020</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Adventure">Adventure</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-Ravenhood Games">Ravenhood Games</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_publisher_ascending_name_ascending.html#quicklink-Ravenhood Games">Ravenhood Games</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Co-Operative">Co-Operative</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Multiplayer">Multiplayer</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://store.steampowered.com/app/1361000/In_Silence" target="_blank">Steam</a><br/><a href="https://www.ravenhoodgames.com/" target="_blank">Official</a><br/><a href="https://twitter.com/InSilence_Game" target="_blank">Twitter</a><br/><a href="https://discord.gg/VHhyrnN" target="_blank">Discord</a><br/><a href="https://www.youtube.com/channel/UCvGk7sRAoNHl6jr_E1TBvGw" target="_blank">YouTube</a><br/><a href="https://www.twitch.tv/directory/game/In%20Silence" target="_blank">Twitch</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<img src="https://cdn.akamai.steamstatic.com/steam/apps/1361000/extras/Desc_1.jpg?t=1639062908" /><h2 class="bb_tag">A New Experience</h2>In Silence is being developed in order to provide a different online horror experience. You can hunt survivors as Rake by using your hypersensitive senses or play as a survivor yourself, use proximity voice chat and work together with other survivors to either escape Rake, or fight back.<h2 class="bb_tag">A Blind Monster... Rake! </h2>Rake’s vision depends on sound. The less sound there is, the less Rake’s able to see. Rake can hear the slightest bit of noise over huge distances and run at an incredible speed. With traits like these, It’s not hard to guess what Rake could do in the right hands.<br><img src="https://cdn.akamai.steamstatic.com/steam/apps/1361000/extras/Monster.gif?t=1639062908" /><h2 class="bb_tag">Shh... Be Quiet!</h2>You may be a heartbeat away from being face to face with a monster because of a step you took, a toy you stepped on, or a vase you broke… But was it your plan all along? You could use noise that objects like a TV or a Radio make in order to distract Rake and escape the area, or maybe to set up a trap instead....<br><img src="https://cdn.akamai.steamstatic.com/steam/apps/1361000/extras/Survivor.gif?t=1639062908" /><h2 class="bb_tag">Escape or Hunt!</h2>As a Survivor, you have two choices. Either try to escape by repairing a car and leaving with it, or open a secret armory and hunt the monster down.<h2 class="bb_tag">Where Am I?</h2>Every match you’ll play is going to be different. Your perks, escape points, roles and the item placement will all be randomized. You will always feel uneasy because there’s no way to predict how the game will go.<br><img src="https://cdn.akamai.steamstatic.com/steam/apps/1361000/extras/Desc_2.jpg?t=1639062908" /><h2 class="bb_tag">Key Features</h2><ul class="bb_ul"><li><strong>Single player </strong><br>Take your shot at defeating Rake by yourself!<br></li><li><strong>Nightmare Mode </strong><br>The amount of items that are spread across the map is equal to the amount of items you will require. If there are 3 wheels missing from a car, there will be only 3 wheels in the map.<br></li><li><strong>Perks</strong> <br>With 16 different perks, every one of them will be useful in different situations and games. The perks will help with giving different roles to every survivor such as becoming a formidable hunter or a great mechanic.<br></li><li><strong>Proximity Voice Chat</strong> <br>You can hear the voices of other players according to their proximity to you. But don’t forget, Rake will be able to hear your voices too.<br></li><li><strong>Flashlight and Flashbang</strong> <br>You will use an advanced flashlight to defuse Rake. With flashbang effect, this flashlight can stop Rake, but also it can make your friends blind. If you are caught by Rake or your friend is caught, you can stun Rake with flashbang and escape. In order to use flashbang, you have to be sure that your flashlight has enough energy. <br></li><li><strong>The Armory</strong> <br>During the match, survivors will be able to find and open a secret armory in order to acquire weapons to aid them with fighting Rake. As a result of opening the armory, Rake might get a bit agitated…<br></li><li><strong>Enraged Monster</strong> <br>When the armory or the escape gates are opened, Rake gets enraged. During this phase, Rake will be able to kill survivors while running.<br></li><li><strong>Play as a Mouse</strong><br>If you die as a survivor, you’ll reappear as a mouse but you’ll still be able to help your friends escape by doing things such as; finding items for other players to use or distracting the monster.<br><img src="https://cdn.akamai.steamstatic.com/steam/apps/1361000/extras/rat.gif?t=1639062908" /> </li></ul><img src="https://cdn.akamai.steamstatic.com/steam/apps/1361000/extras/dwf_en.jpg?t=1639062908" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

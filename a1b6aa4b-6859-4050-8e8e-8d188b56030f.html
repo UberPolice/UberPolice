@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Left Alone: Rebirth</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Left Alone: Rebirth</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:07</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:51:13</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-"></a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Action">Action</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Adventure">Adventure</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-VolumetricGames">VolumetricGames</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_publisher_ascending_name_ascending.html#quicklink-VolumetricGames">VolumetricGames</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Achievements">Achievements</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Partial Controller Support">Partial Controller Support</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/Leftalonerebirth/555179" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-3D">3D</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Action">Action</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Adventure">Adventure</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Atmospheric">Atmospheric</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-First-Person">First-Person</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Horror">Horror</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Nature">Nature</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Psychological">Psychological</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Psychological Horror">Psychological Horror</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Puzzle">Puzzle</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Singleplayer">Singleplayer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Supernatural">Supernatural</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Walking Simulator">Walking Simulator</a><br/></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><p><span>Left Alone: Rebirth is a first-person psychological thriller, with a heavy focus on story and exploration. Delve into a sinister winter wonderland, with atmospheric and chilling interiors. All is not as it seems in these eerily tranquil and gut wrenchingly realistic environments.</span></p><p><span>WISHLIST NOW ON STEAM! </span><a rel="nofollow noopener" target="_blank" href="https://store.steampowered.com/app/1576640/Left_Alone_Rebirth/" title="https://store.steampowered.com/app/1576640/Left_Alone_Rebirth/"><span>https://store.steampowered.com/app/1576640/Left_Alone_Rebirth/</span></a></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 270px; max-width: 480px; max-height: 270px; width: 480px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(99, 118, 136); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/8/179/555179/media/game-description/0b2fb5be-b358-4102-9ed1-f1758f4e11c3-2m75yuej.gif" alt="0b2fb5be-b358-4102-9ed1-f1758f4e11c3.gif" title="0b2fb5be-b358-4102-9ed1-f1758f4e11c3.gif"></div></div><!----></div><!----></div></div><p><span>Key Features:</span></p><ul><li><p><strong><span>Psychological thriller</span></strong><span>&nbsp;– Discover clues, lore, notes and memories left from past students and visitors of Mount High Campgrounds. Isolated and completely alone, navigating your way through a bleak winter environment won't be your only worry in this battle for survival.</span></p></li><li><p><strong><span>Immersive gameplay</span></strong><span>&nbsp;- Scavenge the environment to craft items that will help you solve puzzles throughout the game. Find clues and uncover traces of your friend’s disappearances, while maintaining your temperature in the sub-zero environment. You might unearth more than you bargained for.</span></p></li><li><p><strong><span>High-suspense atmosphere</span></strong><span>&nbsp;- A unique and original score written by our incredible composer will feed into the player's immersion. Carefully designed audio cues and 3D sounds for the player, environments and the world you'll be exploring will deliver a hair raising experience.</span></p></li><li><p><strong><span>Stunning vistas</span></strong><span>&nbsp;- Set in multiple interior and exterior environments which include: Wild hiking trails, neglected cabins, gorging rocky ravines, spectacular glacier caves, forlorn campgrounds, abandoned school and so much more.</span></p></li></ul><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 270px; max-width: 480px; max-height: 270px; width: 480px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(126, 139, 152); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/8/179/555179/media/game-description/gifsample2-a8zwqpxv.gif" alt="gifsample2.gif" title="gifsample2.gif"></div></div><!----></div><!----></div></div><p><span>The World:</span></p><p><span>Built from the ground up, Left Alone: Rebirth is 5x larger than the original, retaining and Improving on all the things you loved in the first game. The unique high-octane atmosphere, incredible and immersive environments with 10x the detail and fidelity, for those who dare to play.</span></p><p><span>The Story:</span></p><p><span>Begin an adventure you'll never quite forget as you play as ex-Military Officer Joel Dent, who is recovering from lengthy physical trauma. Finally on the mend, Joel and his friends arrange a meeting point in the bleak wintery Canadian forests, for a fun, adventurous weekend away fishing at their nostalgic Mount High Camp. Things have changed from when they first met at school 22 years ago.</span><br><br><span>Strange goings-on leave Joel, alone and isolated, with no supplies in sub-zero temperatures. He must find a source of heat to keep his temperature up while he searches for clues into his friend's sudden disappearance. His path will lead to an abandoned school with a horrific past. The search for his friends uncovers horrors beyond his worst nightmares and Joel soon realises he wasn’t actually Left Alone.</span></p><p><span>SYSTEM REQUIREMENTS</span></p><ul><li><p><strong><span>RECOMMENDED:</span></strong></p><ul><li><p><strong><span>OS:</span></strong><span>&nbsp;WINDOWS® 7, 8, 8.1, 10</span></p></li><li><p><strong><span>Processor:</span></strong><span>&nbsp;Intel® Core™ i5 or AMD Ryzen™ 5</span></p></li><li><p><strong><span>Memory:</span></strong><span>&nbsp;8 GB RAM</span></p></li><li><p><strong><span>Graphics:</span></strong><span>&nbsp;NVIDIA® GeForce® GTX 1060 or AMD Radeon™ RX 480</span></p></li><li><p><strong><span>DirectX:</span></strong><span>&nbsp;Version 12</span></p></li><li><p><strong><span>Storage:</span></strong><span>&nbsp;10 GB available space</span></p></li></ul></li></ul><p><a href="https://gamejolt.com/search?q=%23survival" class=""><span>#survival</span></a><span> </span><a href="https://gamejolt.com/search?q=%23horror" class=""><span>#horror</span></a><span> </span><a href="https://gamejolt.com/search?q=%23adventure" class=""><span>#adventure</span></a><span> </span><a href="https://gamejolt.com/search?q=%23puzzle" class=""><span>#puzzle</span></a><span> </span><a href="https://gamejolt.com/search?q=%23action" class=""><span>#action</span></a><span> </span><a href="https://gamejolt.com/search?q=%23exploration" class=""><span>#exploration</span></a><span> </span><a href="https://gamejolt.com/search?q=%23psychologicalthriller" class=""><span>#psychologicalthriller</span></a><span> </span><a href="https://gamejolt.com/search?q=%23thriller" class=""><span>#thriller</span></a><span>  </span><a href="https://gamejolt.com/search?q=%23indiegame" class=""><span>#indiegame</span></a><span>  </span><a href="https://gamejolt.com/search?q=%23other" class=""><span>#other</span></a></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
