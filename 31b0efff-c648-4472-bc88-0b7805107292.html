@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Claustrophobic Nights</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Claustrophobic Nights</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:07</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:52:52</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-9/20/2023">9/20/2023</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Puzzle">Puzzle</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-Hunter Allen">Hunter Allen</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Multiplayer">Multiplayer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/fnafcrawlspace/812298" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><h3><p><a rel="nofollow noopener" target="_blank" href="https://discord.gg/7kjhmAPRYg" title="https://discord.gg/7kjhmAPRYg"><span>JOIN THE DISCORD SERVER</span></a></p><p><strong><span>Synopsis</span></strong></p></h3><p><span>"Welcome to Claustrophobic Nights; a fun virtual interactive experience! At Fazbear Entertainment, your comfort and emotional well being is our top priority. That's why you will find yourself locked in a dark room, alone, and surrounded by vents. But watch out, the animatronic mascots tend to wander, and may attempt to express their affection in an overwhelming and deadly fashion. So be careful, stay alert, and most of all, have fun!"</span></p><h3><p><strong><span>About The Game</span></strong></p></h3><p><span>Claustrophobic Nights is a complete reimagining of Crawlspace 2 in the style of FNaF Help Wanted with multiplayer included. In the game, you crawl through tight spaces and solve various puzzles whilst evading animatronics in order to beat the night.</span></p><h3><p><strong><span>Features</span></strong></p></h3><ul><li><p><strong><span>Multiplayer with up to 5 Players in a Lobby</span></strong></p></li><li><p><strong><span>7 Main Nights and Custom Night with Challenges</span></strong></p></li><li><p><strong><span>3 Different Maps to choose from, each with their Own Unique Spins (5 more to come in update 1.2)</span></strong></p></li><li><p><strong><span>Over 10 Different Enemies to encounter (20+ to come in update 1.2)</span></strong></p></li><li><p><strong><span>An Interactive Tutorial</span></strong></p></li></ul><h3><p><strong><span>Credits</span></strong></p></h3><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-10" class="popper -block"><a href="https://gamejolt.com/@hunterallen_" class=""><span><span>@hunterallen_</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4214994-a8th5eiw-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span> - Director, Publisher, Producer, Programming, Writing, Art, Animation, Music, Sound, VA</span><p></p><h4><p><strong><span>Programmers</span></strong></p></h4><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-11" class="popper -block"><a href="https://gamejolt.com/@Yu_Ro" class=""><span><span>@Yu_Ro</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2244756-crop0_12_1012_1024-ygxecn3w-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-12" class="popper -block"><a href="https://gamejolt.com/@Decimalis" class=""><span><span>@Decimalis</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3965759-ll-ihb3qmwe-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><h4><p><strong><span>Writers</span></strong></p></h4><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-13" class="popper -block"><a href="https://gamejolt.com/@Stormonyx" class=""><span><span>@Stormonyx</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5545980-crop22_22_786_786-xqrpfa7g-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><p></p><h4><p><strong><span>Artists</span></strong></p></h4><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-14" class="popper -block"><a href="https://gamejolt.com/@devilspooptrap" class=""><span><span>@devilspooptrap</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4015091-crop99_39_499_439-nnqhpdim-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span> </span><a rel="nofollow noopener" target="_blank" href="https://twitter.com/Soul_3D_" title="https://twitter.com/Soul_3D_"><span>Soul3D</span></a><span> </span><a rel="nofollow noopener" target="_blank" href="https://twitter.com/CaynilArt" title="https://twitter.com/CaynilArt"><span>caynilart </span></a><span>Ethi </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-15" class="popper -block"><a href="https://gamejolt.com/@Kameron-WhimZy" class=""><span><span>@Kameron-WhimZy</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/8869992-crop0_57_681_738-e2c6ausb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-16" class="popper -block"><a href="https://gamejolt.com/@Spurk" class=""><span><span>@Spurk</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1776547-bn9hfwha-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-17" class="popper -block"><a href="https://gamejolt.com/@FeralPossum" class=""><span><span>@FeralPossum</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4414735-crop293_388_998_1093-jcbw3jsi-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-18" class="popper -block"><a href="https://gamejolt.com/@martinarthur" class=""><span><span>@martinarthur</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2474548-crop100_0_700_600-sj2j2hbk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-19" class="popper -block"><a href="https://gamejolt.com/@Stormonyx" class=""><span><span>@Stormonyx</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5545980-crop22_22_786_786-xqrpfa7g-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-20" class="popper -block"><a href="https://gamejolt.com/@kallub" class=""><span><span>@kallub</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3428841-crop0_473_963_1436-xmntigjk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-21" class="popper -block"><a href="https://gamejolt.com/@PhantronGames" class=""><span><span>@PhantronGames</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4229638-pgmeyris-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p><h4><p><strong><span>Animators</span></strong></p></h4><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-22" class="popper -block"><a href="https://gamejolt.com/@Kameron-WhimZy" class=""><span><span>@Kameron-WhimZy</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/8869992-crop0_57_681_738-e2c6ausb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-23" class="popper -block"><a href="https://gamejolt.com/@PhantronGames" class=""><span><span>@PhantronGames</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4229638-pgmeyris-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p><h4><p><strong><span>Music Composers</span></strong></p></h4><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-24" class="popper -block"><a href="https://gamejolt.com/@3fs" class=""><span><span>@3fs</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1602934-crop280_0_1000_720-mzeqyfub-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-25" class="popper -block"><a href="https://gamejolt.com/@martinarthur" class=""><span><span>@martinarthur</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2474548-crop100_0_700_600-sj2j2hbk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p><h4><p><strong><span>Sound Designers</span></strong></p></h4><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-26" class="popper -block"><a href="https://gamejolt.com/@HarrisonVAChamp" class=""><span><span>@HarrisonVAChamp</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3604007-crop69_17_469_417-ijfkqrki-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-27" class="popper -block"><a href="https://gamejolt.com/@3fs" class=""><span><span>@3fs</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1602934-crop280_0_1000_720-mzeqyfub-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><h4><p><strong><span>Voice Actors</span></strong></p></h4><p><span>ShiftyBread as Hand Unit</span></p><p><span>Hunter Allen as [Secret Character]</span></p><p><span>Kiririn - Original Creator of "Crawlspace"</span></p><p><span>Scott Cawthon - Original Creator of "Five Nights at Freddy's"</span></p><p><span>Scott Cawthon and Steel Wool Games - Creators and Owners of "Five Nights at Freddy's: Help Wanted"</span></p><h4><p><span>Tags</span></p></h4><p><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23vr" class=""><span>#vr</span></a><span> </span><a href="https://gamejolt.com/search?q=%23multiplayer" class=""><span>#multiplayer</span></a><span> </span><a href="https://gamejolt.com/search?q=%23puzzle" class=""><span>#puzzle</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fangame" class=""><span>#fangame</span></a><span> </span><a href="https://gamejolt.com/search?q=%23horror" class=""><span>#horror</span></a><span> </span><a href="https://gamejolt.com/search?q=%23arcade" class=""><span>#arcade</span></a><span> </span><a href="https://gamejolt.com/search?q=%23action" class=""><span>#action</span></a><span> </span><a href="https://gamejolt.com/search?q=%23adventure" class=""><span>#adventure</span></a><span> </span><a href="https://gamejolt.com/search?q=%23survival" class=""><span>#survival</span></a><span> </span><a href="https://gamejolt.com/search?q=%23strategy" class=""><span>#strategy</span></a></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

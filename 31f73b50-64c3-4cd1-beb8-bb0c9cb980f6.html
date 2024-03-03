@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Five Nights at Candy&#39;s Remastered (Official)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Five Nights at Candy&#39;s Remastered (Official)</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:07</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:46:24</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-8/14/2019">8/14/2019</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Point-and-click">Point-and-click</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Strategy">Strategy</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-Emil "Ace" Macko">Emil "Ace" Macko</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_publisher_ascending_name_ascending.html#quicklink-Emil Macko">Emil Macko</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/five-nights-at-candy-s-remastered/426659" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><p><em><span>No company is without a rival.</span></em></p><p><em><span>Freddy Fazbear's New Pizzeria has closed for good. And so, another restaurant is going to take its place in the world of entertainment.</span></em></p><p><em><span>What could go wrong?</span></em></p><hr><p><span>This is Five Nights at Candy's Remastered, a game remade for the 4th anniversary of the Five Nights at Candy's game (and series).</span></p><p><em><strong><span>This game does NOT work well on older hardware!</span></strong></em><strong><span> If you experience issues like the shaders not working, or the backgrounds go missing, then the game is unfit for your PC.</span></strong></p><p><span>The most notable difference between this remaster and the original game, is that the graphics have been upgraded to a whole new level. Technical nerds among you will love to know that all the game's 3D renders have been re-rendered in Blender Cycles. With this, models have been polished, and all materials/textures having received an upgrade as well.</span></p><p><span>The game's code has been rewritten entirely, hopefully ensuring better performance and stability. This also means I've had opportunity to rebalance the game a bit, though the </span><strong><span>mechanics are all the exact same as before</span></strong><span>.</span></p><hr><h3><p><strong><span>HOW TO PLAY:</span></strong></p></h3><ul><li><p><span>The entire restaurant will be dark at night, so the cameras have </span><strong><span>Night Vision</span></strong><span>. To activate Night Vision, just click on a camera to see the camera feed, then </span><strong><span>click on the camera again to enable Night Vision</span></strong><span>.</span><br><span>You can switch to other cameras with Night Vision enabled, and </span><strong><span>click the current camera again to disable Night Vision</span></strong><span>. Remember to be careful, as </span><strong><span>using the camera takes power</span></strong><span>, and </span><strong><span>night-vision even more so!</span></strong></p></li><li><p><span>The cameras CAM-04 and CAM-06 are pointed at the outside of the doors to your left and right, so use Night Vision to see if anything comes by.</span></p></li><li><p><span>Each door's button has a </span><strong><span>power-usage meter</span></strong><span>, which </span><strong><span>shows how much power a door uses. The longer a door is closed, the more power it will drain!</span></strong></p></li></ul><hr><p><span>Other than following me and the game, you can also follow my Twitter account for updates: </span><a rel="nofollow noopener" target="_blank" href="https://twitter.com/Emilmacko" title="https://twitter.com/Emilmacko"><span>https://twitter.com/Emilmacko</span></a></p><p><span>I also have a YouTube channel: </span><a rel="nofollow noopener" target="_blank" href="https://www.youtube.com/emilmacko" title="https://www.youtube.com/emilmacko"><span>https://www.youtube.com/emilmacko</span></a></p><hr><p><strong><span>Disclaimer:</span></strong></p><p><span>A number of sound effects are used in game under the </span><a rel="nofollow noopener" target="_blank" href="https://creativecommons.org/licenses/by/3.0/" title="https://creativecommons.org/licenses/by/3.0/"><span>attribution license</span></a><span>, and have been heavily modified/mixed to fit in the game. I do not claim ownership of any sound effects, apart from ones I created entirely, and I am thankful for the opportunity to use them!</span></p><hr><p><a href="https://gamejolt.com/search?q=%23fnac" class=""><span>#fnac</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fnacr" class=""><span>#fnacr</span></a><span> </span><a href="https://gamejolt.com/search?q=%23horror" class=""><span>#horror</span></a><span> </span><a href="https://gamejolt.com/search?q=%23remastered" class=""><span>#remastered</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fangame" class=""><span>#fangame</span></a><span> </span><a href="https://gamejolt.com/search?q=%23pointnclick" class=""><span>#pointnclick</span></a><span> </span><a href="https://gamejolt.com/search?q=%23survival" class=""><span>#survival</span></a><span> </span><a href="https://gamejolt.com/search?q=%23candythecat" class=""><span>#candythecat</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fivenightsatcandys" class=""><span>#fivenightsatcandys</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fivenightsatcandysremastered" class=""><span>#fivenightsatcandysremastered</span></a><span> </span><a href="https://gamejolt.com/search?q=%23emilmacko" class=""><span>#emilmacko</span></a><span> </span><a href="https://gamejolt.com/search?q=%23emilacemacko" class=""><span>#emilacemacko</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

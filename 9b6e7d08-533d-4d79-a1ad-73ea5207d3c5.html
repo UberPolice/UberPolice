@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Down Ward - (jam beta)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Down Ward - (jam beta)</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:07</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:50:41</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-"></a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-platformer">platformer</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-fisholith">fisholith</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/Down-Ward/86985" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><p><a rel="nofollow noopener" target="_blank" href="https://www.kickstarter.com/projects/fisholith/down-ward-game-owl-flight-pixel-platformer" title="https://www.kickstarter.com/projects/fisholith/down-ward-game-owl-flight-pixel-platformer"><span>Kickstarter</span></a><span> | </span><a rel="nofollow noopener" target="_blank" href="https://playdownward.com/" title="https://playdownward.com/"><span>Website</span></a><span> | </span><a rel="nofollow noopener" target="_blank" href="https://playdownward.com/presskit/" title="https://playdownward.com/presskit/"><span>Press kit</span></a><span> | </span><a rel="nofollow noopener" target="_blank" href="https://twitter.com/Fisholith" title="https://twitter.com/Fisholith"><span>Twitter</span></a></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 381.25px; max-width: 640px; max-height: 400px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(31, 42, 56); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/1/235/86985/media/game-description/hub-loop-snicqsk3.gif" alt="hub-loop.gif" title="hub-loop.gif"></div></div><!----></div><!----></div></div><p><em><span>Gable flutters her way through the leafy alcove.</span></em></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 358.129px; max-width: 620px; max-height: 364px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(41, 51, 64); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/1/235/86985/media/game-description/stacktop-cap3-loop-20mb-hvewbc5m.gif" alt="stacktop-cap3-loop-20mb.gif" title="stacktop-cap3-loop-20mb.gif"></div></div><!----></div><!----></div></div><p><em><span>Gable flaps her way through a host of haunts to fetch some feathers.</span></em></p><hr><p><em><span>Down Ward was originally created for GameBoy Jam 4, and is still being updated and added to. All feedback is welcome. :)</span></em></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 67.7778px; max-width: 630px; max-height: 70px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(36, 63, 59); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/2155357-ll-meh9akxa-v4.webp" alt="5d0d28456e0d3.png" title="5d0d28456e0d3.png"></div></div><!----></div><!----></div></div><h4><p><strong><span>Table of Contents</span></strong></p></h4><p><em><span>== The game ==</span></em><br><em><span>== Controls ==</span></em><br><em><span>== Gameplay Help ==</span></em><br><em><span>== Color Palettes ==</span></em><br><em><span>== Custom Color Palettes ==</span></em><br><em><span>== Known Issues ==</span></em></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 67.7778px; max-width: 630px; max-height: 70px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(35, 61, 59); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/2155358-ll-s3rcuc27-v4.webp" alt="5d0d2845e8ecc.png" title="5d0d2845e8ecc.png"></div></div><!----></div><!----></div></div><h4><p><span>== The game ==</span></p></h4><p><span>Venture into the haunted wilds with Gable, a little owl, as she sets out to rekindle the dormant relics of a land long abandoned to ruin.</span></p><p><span>Puzzle, fight, and fly your way through the long lost gauntlets, and spectral denizens of the fearful Deep Wilds.</span></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 67.7778px; max-width: 630px; max-height: 70px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(29, 52, 52); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/2155359-ll-ihujg5fh-v4.webp" alt="5d0d284673cb7.png" title="5d0d284673cb7.png"></div></div><!----></div><!----></div></div><h4><p><span>== Controls ==</span></p></h4><p><span>You can edit the keyboard &amp; gamepad controls in the menu.</span></p><ul><li><p><strong><span>Key | Action</span></strong></p></li><li><hr></li><li><p><span>Insert</span><span> | </span><strong><span>Menu</span></strong><span>.</span></p></li><li><p><span>Delete</span><span> | </span><strong><span>Fullscreen</span></strong><span>.</span></p></li><li><p><span>M</span><span> | </span><span>Cycle music volumes.</span></p></li><li><p><span>N</span><span> | </span><span>Cycle sound volumes.</span></p></li><li><p><span>\</span><span> | </span><span>Toggle GameBoy resolution letterboxing.</span></p></li><li><p><span>+, -, 0</span><span> | </span><span>Choose color palette. (Next, Previos, Reset)</span></p></li></ul><p><em><span>(see "Color Palettes" list below)</span></em><br><em><span>If you create your own custom color palette (see "Custom Color Palettes" section), feel free to share it in the comments section. :)</span></em></p><ul><li><p><strong><span>-- Keyboard --
+Each column of the table is a key setup.
+Setups: | ZX-style | Wide | Narrow | WASD</span></strong></p></li><li><hr></li><li><p><span>Move:</span><span> | </span><span>Arrows</span><span> | </span><span>Arrows</span><span> | </span><span>Arrows</span><span> | </span><span>WASD</span></p></li><li><p><span>Jump:</span><span> | </span><span>Z</span><span> | </span><span>Space</span><span> | </span><span>Space</span><span> | </span><span>K</span></p></li><li><p><span>Attack:</span><span> | </span><span>X</span><span> | </span><span>G</span><span> | </span><span>V</span><span> | </span><span>J</span></p></li><li><p><span>Zoom:</span><span> | </span><span>Shift</span><span> | </span><span>F</span><span> | </span><span>C</span><span> | </span><span>L</span></p></li></ul><p><span>(I use "Wide")</span></p><ul><li><p><strong><span>-- Gamepad --
+Action | Input</span></strong></p></li><li><hr></li><li><p><span>Move and Aim</span><span> | </span><span>Analogue / D-pad</span></p></li><li><p><span>Fly | X</span></p></li><li><p><span>Jump | A</span></p></li><li><p><span>Attack | B, R-Trig</span></p></li><li><p><span>Look | Y, L-Trig</span></p></li><li><p><span>Fullscreen | Start</span></p></li></ul><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 67.7778px; max-width: 630px; max-height: 70px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(34, 60, 58); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/2155360-ll-z95dim39-v4.webp" alt="5d0d2846de41d.png" title="5d0d2846de41d.png"></div></div><!----></div><!----></div></div><h4><p><span>== Gameplay Help ==</span></p></h4><ul><li><p><strong><span>Spring jump</span></strong><span>: Down + Jump -- </span><em><span>(Using any move and jump keys.)</span></em><span>. Handy for making your way up through areas too tight for flight.</span></p></li><li><p><strong><span>Flight momentum</span></strong><span>: When flying, try not to switch direction too often, as you will lose a lot of speed and begin to fall. Flying in a consistent direction is the best way to maintain lift.</span></p></li><li><p><strong><span>Upward zig-zag</span></strong><span>: While flying at an upward diagonal, if you have to switch direction, it's best to overshoot before making your turn, so that you have enough space to regain momentum after changing direction.</span></p></li><li><p><strong><span>Wall banking</span></strong><span>: Reversing direction the instant you hit a vertical wall will preserve a little more lift than reversing direction in mid air. This is because when you bank off a wall, you stop instantly, and so you don't lose any lift while slowing down.</span></p></li><li><p><strong><span>Feather fall</span></strong><span>: Holding move Up, while falling will slow your descent.</span></p></li><li><p><strong><span>Level flight</span></strong><span>: You can fly horizontally, without ascending or descending, by holding left or right, and intermittently tapping the up key. </span><em><span>(Takes a bit of practice.)</span></em></p></li><li><p><strong><span>Attacking vertically</span></strong><span>: You can only attack vertically when you are not holding left or right.</span></p></li><li><p><strong><span>Skellies</span></strong><span>: Striking an owl skellie in the body will only knock it away.</span></p></li></ul><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 67.7778px; max-width: 630px; max-height: 70px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(37, 64, 60); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/2155361-ll-pbraatbw-v4.webp" alt="5d0d2847533d2.png" title="5d0d2847533d2.png"></div></div><!----></div><!----></div></div><h4><p><span>== Color Palettes ==</span></p></h4><p><span>You can cycle through palettes in-game with the "+" and "-" keys, and you can reset to the default with the "0" key.</span></p><p><span>You can hold "+" or "-" to step through pallets with a short delay on each.</span></p><p><span>If you first hold "+", then also begin holding "-", you can fast step through pallets. The same works in reverse if you first hold "-" then also hold "+".</span></p><p><span>See the "Custom Color Palettes" section below if you want to try making your own color palettes. :)</span><br><em><span>(note: Groups of related palettes are separated by foggy white divider palettes.)</span></em></p><h4><p><span>== Custom Color Palettes ==</span></p></h4><p><em><span>If you create your own custom color palettes, feel free to share them in the comments section. :)</span></em></p><p><strong><span>Example steps</span></strong><br><span>In Down Ward you can create your own custom color palettes.</span></p><ol><li><p><span>Open the menu by pressing Escape, and choose "Graphics", then "Custom color palette". </span><br><br><em><span>Alternatively, you can open the console with the tilde "~" key, usually top of the keyboard, just left of the number row. Then in the text area, type or paste (without quotes) "setColors, 001122 , 334455 , 667788 , 99AABB".</span></em></p></li><li><p><span>Press Enter. (Click in the text area first if it doesn't seem to work.)</span></p></li><li><p><span>Done! You should now see a bluish color scheme in the game.</span></p></li></ol><p><strong><span>"setColors" command</span></strong><br><span>In the example,</span></p><ul><li><p><span>setColors , </span><strong><span>001122</span></strong><span> , </span><strong><span>334455</span></strong><span> , </span><strong><span>667788</span></strong><span> , </span><strong><span>99AABB</span></strong></p></li></ul><p><span>the set of four six-digit numbers are the game's four colors, starting with the darkest color, and ending with the lightest.</span></p><p><span>In the above example:</span></p><ul><li><p><span>color 1 = </span><strong><span>001122</span></strong><span> ---&gt; (Darkest)</span></p></li><li><p><span>color 2 = </span><strong><span>334455</span></strong></p></li><li><p><span>color 3 = </span><strong><span>667788</span></strong></p></li><li><p><span>color 4 = </span><strong><span>99AABB</span></strong><span> ---&gt; (Lightest)</span></p></li></ul><p><span>These four colors are in hex-code format. For each color, the first 2 digits are the Red amount, the next 2 are Green, and the last 2 are Blue.</span></p><p><span>So the color "</span><strong><span>0011FF</span></strong><span>" means:</span></p><ul><li><p><span>Red = </span><strong><span>00</span></strong><span> ---&gt; (no red at all)</span></p></li><li><p><span>Green = </span><strong><span>11</span></strong><span> ---&gt; (tiny bit of green)</span></p></li><li><p><span>Blue = </span><strong><span>FF</span></strong><span> ---&gt; (maximum blue. "F" is the largest digit in hexadecimal.)</span></p></li></ul><p><em><span>If you're not familiar with Hexadecimal numbers, don't worry, You can just use an online color picker, no hex-knowledge required. :)</span></em></p><p><span>You can get hex-codes for colors from almost all color pickers, such as the one at the site linked below. </span><em><span>(The color code can be found just above the big color square.)</span></em><br><a rel="nofollow noopener" target="_blank" href="http://www.colorpicker.com/" title="http://www.colorpicker.com/"><span>http://www.colorpicker.com/</span></a></p><p><strong><span>"addColors" command</span></strong><br><span>You can add a color palette to the game's list of palettes using the "addColors" command.</span><br><em><span>e.g. "addColors, 001122, 334455, 667788, 99AABB"</span></em><br><span>Notice that there is no blend number at the end, it's just the four color hex-codes.</span></p><p><strong><span>Scripting multiple "addColors" commands</span></strong><br><span>If you want to make a simple script that adds several palettes to the game at once, just separate the multiple addColors commands with semicolons ";".</span></p><p><em><span>e.g. "addColors, 001122, 334455, 667788, 99AABB </span></em><em><strong><span>;</span></strong></em><em><span> addColors, 000000, 222222, BBBBBB, FFFFFF </span></em><em><strong><span>;</span></strong></em><em><span> addColors, 373541, 455861, f3775b, f7e8d6"</span></em></p><p><span>The above example will add three palettes to the game's list of palettes. You'll then be able to choose them with the "+" and "-" keys like any other palette. :)</span><br><em><span>Remember, you'll need to scroll to the very end of the pallet list to get to new palettes.</span></em></p><p><span>(Note: There is currently a bug that prevents custom palettes from staying in the list when you advance to a new level, but fortunately any currently active custom palette will stay active regardless.)</span></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 67.7778px; max-width: 630px; max-height: 70px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(36, 63, 59); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/2155362-ll-ffikcrrh-v4.webp" alt="5d0d284814c3a.png" title="5d0d284814c3a.png"></div></div><!----></div><!----></div></div><h4><p><span>== GreenLight ==</span></p></h4><p><em><span>Down Ward has been greenlit! Thanks to all who helped carry Down Ward through Steam Greenlight in 12 days. :)</span></em><br><span>Down Ward is not leaving Game Jolt. As more Down Ward updates are released, it's likely that Game Jolt will get them first ahead of Steam.</span></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 67.7778px; max-width: 630px; max-height: 70px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(35, 61, 59); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/2155363-ll-rfhrghpr-v4.webp" alt="5d0d2848d1e9f.png" title="5d0d2848d1e9f.png"></div></div><!----></div><!----></div></div><h4><p><span>== Known Issues ==</span></p></h4><ul><li><p><span>The desktop version runs on NodeWebkit, which attempts to synchronize it's internal clock by making a query to a google server upon starting up. It's not necessary to the game, so you can block it with a firewall if you want. No part of Down Ward currently requires any internet connection.</span></p></li><li><p><span>For the in-browser version, sometimes the loader will stall with an empty loading bar. Reloading the page seems to fix this, but it may take a few tries. Likewise if the game starts, but no music plays, reloading usually fixes this.</span></p></li><li><p><span>Color palette controls don't seem to work in Firefox. You can still change palettes using the menu though. Press the "Insert" key to open the menu, then choose "Settings", and use the Color buttons at the bottom.</span></p></li></ul><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 67.7778px; max-width: 630px; max-height: 70px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(37, 64, 60); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/2155364-ll-q5yi4wrm-v4.webp" alt="5d0d284967d7f.png" title="5d0d284967d7f.png"></div></div><!----></div><!----></div></div><p><a href="https://gamejolt.com/search?q=%23gbjam" class=""><span>#gbjam</span></a><span> </span><a href="https://gamejolt.com/search?q=%23foreverjam" class=""><span>#foreverjam</span></a><span> </span><a href="https://gamejolt.com/search?q=%23platformer" class=""><span>#platformer</span></a><span> </span><a href="https://gamejolt.com/search?q=%23DownWardGame" class=""><span>#DownWardGame</span></a><span> </span><a href="https://gamejolt.com/search?q=%23SkyDownGame" class=""><span>#SkyDownGame</span></a></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
