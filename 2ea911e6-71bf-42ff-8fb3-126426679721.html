@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Victory Heat Rally</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Victory Heat Rally</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:07</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:55:43</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-"></a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Racing">Racing</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Sports">Sports</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-skydevilpalm">skydevilpalm</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_publisher_ascending_name_ascending.html#quicklink-Playtonic Friends">Playtonic Friends</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Multiplayer">Multiplayer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/victoryheatrally/535114" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-1980s">1980s</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-4 Player Local">4 Player Local</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Arcade">Arcade</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Cartoon">Cartoon</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Colorful">Colorful</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Combat Racing">Combat Racing</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Competitive">Competitive</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Controller">Controller</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Driving">Driving</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Fast-Paced">Fast-Paced</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Local Multiplayer">Local Multiplayer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Pixel Graphics">Pixel Graphics</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-PvP">PvP</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Racing">Racing</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Retro">Retro</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Singleplayer">Singleplayer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Split Screen">Split Screen</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Sports">Sports</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Time Attack">Time Attack</a><br/></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><p><span>Welcome to Victory Heat Rally!&nbsp;</span></p><p><span>We're currently on KICKSTARTER!&nbsp;- </span><a rel="nofollow noopener" target="_blank" href="http://kck.st/3lKQb7A" title="http://kck.st/3lKQb7A"><span>http://kck.st/3lKQb7A</span></a></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item -link" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container" style="height: 160px; max-width: 532px; max-height: 160px; width: 532px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><a data-v-b1380c8e="" class="-img-container" href="http://kck.st/3lKQb7A" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/600/4503254-54dfn8bp-v4.webp" alt="http://kck.st/3lKQb7A" title="http://kck.st/3lKQb7A"></a></div><div data-v-b1380c8e="" class="-link-overlay"><small data-v-b1380c8e=""><a data-v-b1380c8e="" rel="nofollow noopener" target="_blank" href="http://kck.st/3lKQb7A" class="-link-overlay-display"><span data-v-b1380c8e="" class="jolticon jolticon-link -icon"></span> &nbsp; <span data-v-b1380c8e="">http://kck.st/3lKQb7A</span></a></small></div></div><!----></div></div><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 343.443px; max-width: 1920px; max-height: 1081px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/4503236-i9mvghkh-v4.webp" alt="ks_page_art.png" title="ks_page_art.png"></div></div><!----></div><!----></div></div><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 160.619px; max-width: 695px; max-height: 183px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/4503244-ll-wy4rvjh2-v4.webp" alt="gameplay.png" title="gameplay.png"></div></div><!----></div><!----></div></div><h4><p><strong><span>NEO SUPER SCALER RACING</span></strong></p></h4><p><span>Drift your way to the finish line in this fast paced arcade style racer with super scaler aesthetics!</span></p><h4><p><em><strong><span>Gameplay Features</span></strong></em></p></h4><ul><li><p><span>&nbsp;</span><em><span>F</span></em><span>&nbsp;</span><em><span>A</span></em><span>&nbsp;</span><em><span>S</span></em><span>&nbsp;</span><em><span>T</span></em><span>&nbsp;&nbsp;paced, over the top Arcade style gameplay</span></p></li><li><p><span>Breakneck speeds,&nbsp;</span><em><span>drifts</span></em><span>&nbsp;&amp; stunts</span></p></li><li><p><span>Tight &amp; responsive controls</span></p></li><li><p><span>2 playable characters/cars with unique stats</span></p></li><li><p><span>Multiple game modes like arcade, time attack &amp; more!</span></p></li><li><p><span>Gorgeous hand made pixel art &amp; animation by Skydevilpalm</span></p></li><li><p><span>Banging soundtrack by RoBKTA &amp; GWIZ&nbsp;</span></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 81.6804px; max-width: 970px; max-height: 139px; width: 570px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/600/4503497-ll-qb3vqn2m-v4.webp" alt="rob__gwiz_logos.png" title="rob__gwiz_logos.png"></div></div><!----></div><!----></div></div></li></ul><h4><p><span>Try out the free demo!</span></p></h4><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item -link" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container" style="height: 187.946px; max-width: 740px; max-height: 228px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><a data-v-b1380c8e="" class="-img-container" href="https://skydevilpalm.itch.io/victory-heat-rally" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/4503494-ll-uatssjah-v4.webp" alt="https://skydevilpalm.itch.io/v…" title="https://skydevilpalm.itch.io/v…"></a></div><div data-v-b1380c8e="" class="-link-overlay"><small data-v-b1380c8e=""><a data-v-b1380c8e="" rel="nofollow noopener" target="_blank" href="https://skydevilpalm.itch.io/victory-heat-rally" class="-link-overlay-display"><span data-v-b1380c8e="" class="jolticon jolticon-link -icon"></span> &nbsp; <span data-v-b1380c8e="">https://skydevilpalm.itch.io/v…</span></a></small></div></div><!----></div></div><p><strong><span>Planned Full Game Features&nbsp;</span></strong></p><p><span>The Kickstarter demo only represents a sliver of what we have in store if we can reach our funding goal! 💸</span></p><p><em><span>Including</span></em></p><ul><li><p><span>Over a dozen distinct environments 🛕🌃🌄🌅🌆🌉</span></p></li><li><p><span>Large roster of playable characters/cars 😎🚗</span></p></li><li><p><span>Rally Mode! &nbsp;- Point 🅰 to 🅱 style races&nbsp;</span></p></li><li><p><span>Split screen multiplayer 🎮🎮🎮🎮</span></p></li><li><p><span>Unlockable content, bonus mini games &amp; tons of easter eggs</span></p></li><li><p><span>More polish &amp; refinements to the overall style &amp; feel of the game ✨</span></p></li></ul><p><strong><span>+ More content &amp; a level editor if we can reach our stretch goals!</span></strong></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 343.125px; max-width: 1920px; max-height: 1080px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(106, 136, 150); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/4503240-xftuhrfz-v4.webp" alt="baytona_beach_arcade.png" title="baytona_beach_arcade.png"></div></div><!----></div><!----></div></div><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 343.125px; max-width: 1920px; max-height: 1080px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(119, 137, 156); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/4503477-z9jjtbjf-v4.webp" alt="screenshot_day_sally.png" title="screenshot_day_sally.png"></div></div><!----></div><!----></div></div><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 343.125px; max-width: 1920px; max-height: 1080px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(104, 108, 149); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/4503482-7uwirxij-v4.webp" alt="screenshot_night_krissi.png" title="screenshot_night_krissi.png"></div></div><!----></div><!----></div></div><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 343.125px; max-width: 1920px; max-height: 1080px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(190, 134, 110); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/4503479-atv6xjui-v4.webp" alt="screenshot_sunset_clyde.png" title="screenshot_sunset_clyde.png"></div></div><!----></div><!----></div></div><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item -link" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container" style="height: 160.619px; max-width: 695px; max-height: 183px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><a data-v-b1380c8e="" class="-img-container" href="https://www.skydevilpalm.com/victory-heat-rally" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/4503499-bamcxiwt-v4.webp" alt="https://www.skydevilpalm.com/v…" title="https://www.skydevilpalm.com/v…"></a></div><div data-v-b1380c8e="" class="-link-overlay"><small data-v-b1380c8e=""><a data-v-b1380c8e="" rel="nofollow noopener" target="_blank" href="https://www.skydevilpalm.com/victory-heat-rally" class="-link-overlay-display"><span data-v-b1380c8e="" class="jolticon jolticon-link -icon"></span> &nbsp; <span data-v-b1380c8e="">https://www.skydevilpalm.com/v…</span></a></small></div></div><!----></div></div><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item -link" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container" style="height: 451.469px; max-width: 708px; max-height: 524px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><a data-v-b1380c8e="" class="-img-container" href="https://discord.gg/PsyRWKF" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/4503500-kjbr9yxq-v4.webp" alt="https://discord.gg/PsyRWKF" title="https://discord.gg/PsyRWKF"></a></div><div data-v-b1380c8e="" class="-link-overlay"><small data-v-b1380c8e=""><a data-v-b1380c8e="" rel="nofollow noopener" target="_blank" href="https://discord.gg/PsyRWKF" class="-link-overlay-display"><span data-v-b1380c8e="" class="jolticon jolticon-link -icon"></span> &nbsp; <span data-v-b1380c8e="">https://discord.gg/PsyRWKF</span></a></small></div></div><!----></div></div><h4><p><span>TEAM VHR:</span></p></h4><p><span>Programming:&nbsp;&nbsp;</span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@SandwichColonel" class=""><span title="@SandwichColonel"><span>@SandwichColonel</span></span></a></span></p><p><span>Art/Design/Direction:&nbsp;</span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-10" class="popper -block"><a href="https://gamejolt.com/@skydevilpalm" class=""><span><span>@skydevilpalm</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2493637-ll-eejbcm6q-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>&nbsp;(</span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@pixeldewd" class=""><span title="@pixeldewd"><span>@pixeldewd</span></span></a></span><span>&nbsp;&amp;&nbsp;</span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@dreampathos" class=""><span title="@dreampathos"><span>@dreampathos</span></span></a></span><span>)</span><p></p><p><span>Illustration/Design:&nbsp;</span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-11" class="popper -block"><a href="https://gamejolt.com/@Eliz0r" class=""><span><span>@Eliz0r</span>   <span style="position: relative; display: inline-block;"><img src="https://secure.gravatar.com/avatar/d9746db9a6bae1a3cd70e614d17b08b1?s=200&amp;r=pg&amp;d=https%3A%2F%2Fs.gjcdn.net%2Fimg%2Fno-avatar-3.png" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><p></p><p><span>Music:&nbsp;</span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@RoB_KTA" class=""><span title="@RoB_KTA"><span>@RoB_KTA</span></span></a></span><span>&nbsp;,&nbsp;</span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@gwizofthestars" class=""><span title="@gwizofthestars"><span>@gwizofthestars</span></span></a></span></p><p><span>SFX:&nbsp;</span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@thecactusbear" class=""><span title="@thecactusbear"><span>@thecactusbear</span></span></a></span></p><p><span>Voice&nbsp; Acting:&nbsp;</span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@47Mapes" class=""><span title="@47Mapes"><span>@47Mapes</span></span></a></span><span> , </span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@AimeeSmithVA" class=""><span title="@AimeeSmithVA"><span>@AimeeSmithVA</span></span></a></span></p><p><span>-NOTE-</span></p><p><span>This game is still a work in progress and does not represent the final product!</span></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

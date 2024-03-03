@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>&gt; Dormitabis Remastered</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> &gt; Dormitabis Remastered</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:07</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:53:45</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-7/31/2023">7/31/2023</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Point-and-click">Point-and-click</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-An Aberrant Team">An Aberrant Team</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_publisher_ascending_name_ascending.html#quicklink-An Aberrant Team">An Aberrant Team</a><br/><a href="default%20list%20text%20combobox%20quicklinks_publisher_ascending_name_ascending.html#quicklink-Chrowden">Chrowden</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/DormitabisRemastered/720126" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><h4><p><span>BEFORE YOU COMMENT!</span></p></h4><hr><p><em><span>Yes, the game is the official Dormitabis Remaster.</span></em></p><p><em><span>No, it isn't involved with Nicchi</span></em></p><p><em><span>No, Garvey isn't a rapist</span></em></p><hr><p><em><strong><span>For mobile (Android) users:</span></strong></em><em><span> </span></em><em><a href="https://gamejolt.com/games/DormitabisRemasteredAndroid/842529" title="https://gamejolt.com/games/DormitabisRemasteredAndroid/842529"><span>https://gamejolt.com/games/DormitabisRemasteredAndroid/842529</span></a></em></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 47.5492px; max-width: 1424px; max-height: 111px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/19012176-ll-kzpntgkp-v4.webp" alt="welcome_to_my_flipside.png" title="welcome_to_my_flipside.png"></div></div><!----></div><!----></div></div><p><span>After a horde of flames has consumed you whole, all you see is black, then white, then nothing, and suddenly you're back, but, something isn't right. "</span><em><span>Wasn't I just in that god forsaken horror attraction?"</span></em></p><p><span>You have no way of knowing what's down here, so you head to the most secure looking room, two exits, and a window behind, and you sit long ways from the computer that greets you at the door, and suddenly, bells, their slumber is over and an obscured phone starts ringing.</span></p><h4><p><em><span>Good luck.</span></em></p></h4><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 48.0895px; max-width: 1408px; max-height: 111px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/19012180-ll-5yu2ugwh-v4.webp" alt="in_a_familiar_place.png" title="in_a_familiar_place.png"></div></div><!----></div><!----></div></div><p><em><strong><span>Dormitabis Remastered </span></strong></em><span>is a FNaF fangame that takes place shortly after FNaF3 where the good ending is not canon and therefore is not related to any FNaF games past FNaF SL.</span></p><p><span>It follows its own canon that works off of the basis of FNaF3's fire, with Springtrap dying shortly after it.</span></p><p><span>With a standard amount of deaths the game can take about 2 hours to beat in a standard session, even longer if playing casually.</span></p><p><span>to 100% is also WAY longer as there are secret areas/minigames and other challenges that give you special rewards as well.</span></p><hr><p><em><strong><span>Content this game has that original does not.</span></strong></em></p><hr><ul><li><p><span>A fully original soundtrack</span></p></li><li><p><span>A fully functional custom night mode</span></p></li><li><p><span>More animations (and better animations)</span></p></li><li><p><span>DLCs based on the 2018, and 2019 version of the game</span></p></li><li><p><span>More secret endings and easter eggs</span></p></li></ul><hr><p><em><strong><span>How this game improves upon the original.</span></strong></em></p><hr><ul><li><p><span>Improved visuals</span></p></li><li><p><span>Improved gameplay</span></p></li><li><p><span>Improved writing and storytelling</span></p></li><li><p><span>Improved models and rigging</span></p></li><li><p><span>Improved textures</span></p></li><li><p><span>Smoother animations</span></p></li><li><p><span>Better voice acting</span></p></li><li><p><span>Improved UI</span></p></li><li><p><span>More balanced gameplay</span></p></li><li><p><span>Better shaders</span></p></li><li><p><span>Improved art</span></p></li></ul><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 52px; max-width: 1220px; max-height: 104px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/19012182-ll-hviptegu-v4.webp" alt="with_so_many_faces.png" title="with_so_many_faces.png"></div></div><!----></div><!----></div></div><ul><li><h4><p><em><span>The wonderful people who have contributed to development</span></em></p></h4><hr><p><span>Directors: </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-10" class="popper -block"><a href="https://gamejolt.com/@Bit-Hell" class=""><span><span>@Bit-Hell</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/6827945-crop12_0_512_500-frjyzedb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-11" class="popper -block"><a href="https://gamejolt.com/@Airloxz" class=""><span><span>@AirLoxz</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/9706613-crop0_0_655_655-6rpr8a2n-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><span>Modelers: </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-12" class="popper -block"><a href="https://gamejolt.com/@Bit-Hell" class=""><span><span>@Bit-Hell</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/6827945-crop12_0_512_500-frjyzedb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-13" class="popper -block"><a href="https://gamejolt.com/@Greafness" class=""><span><span>@Greafness</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5520297-crop95_39_931_875-jjbsxuic-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-14" class="popper -block"><a href="https://gamejolt.com/@Piggie2023" class=""><span><span>@Piggie2023</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2601243-rtr6csck-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><span>Coding: </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-15" class="popper -block"><a href="https://gamejolt.com/@Bit-Hell" class=""><span><span>@Bit-Hell</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/6827945-crop12_0_512_500-frjyzedb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><p></p><p><span>Writing: </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-16" class="popper -block"><a href="https://gamejolt.com/@Airloxz" class=""><span><span>@AirLoxz</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/9706613-crop0_0_655_655-6rpr8a2n-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><p></p><p><span>Voice Acting: </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-17" class="popper -block"><a href="https://gamejolt.com/@Taykiraro" class=""><span><span>@Taykiraro</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2561765-3mrcnaft-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-18" class="popper -block"><a href="https://gamejolt.com/@Taykiraro" class=""><span><span>@Taykiraro</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2561765-3mrcnaft-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-19" class="popper -block"><a href="https://gamejolt.com/@TheSparky556" class=""><span><span>@TheSparky556</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/715578-crop161_0_1744_1583-fqkca4rg-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-20" class="popper -block"><a href="https://gamejolt.com/@Airloxz" class=""><span><span>@AirLoxz</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/9706613-crop0_0_655_655-6rpr8a2n-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><span>Soundtrack: </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-21" class="popper -block"><a href="https://gamejolt.com/@HipsteryDibstery" class=""><span><span>@HipsteryDibstery</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/6055169-crop0_1_398_399-n32abukr-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-22" class="popper -block"><a href="https://gamejolt.com/@Airloxz" class=""><span><span>@AirLoxz</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/9706613-crop0_0_655_655-6rpr8a2n-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><span>SFX: </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-23" class="popper -block"><a href="https://gamejolt.com/@Bit-Hell" class=""><span><span>@Bit-Hell</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/6827945-crop12_0_512_500-frjyzedb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-24" class="popper -block"><a href="https://gamejolt.com/@Airloxz" class=""><span><span>@AirLoxz</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/9706613-crop0_0_655_655-6rpr8a2n-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><span>Artwork: </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-25" class="popper -block"><a href="https://gamejolt.com/@PyreLynx" class=""><span><span>@PyreLynx</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/7637054-crop33_0_773_740-mrbtynxa-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-26" class="popper -block"><a href="https://gamejolt.com/@sfd28" class=""><span><span>@sfd28</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4525496-crop53_5_488_440-8s9v74z5-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><hr></li><li><p><strong><span>Specials Thanks to</span></strong></p><p><em><span>Percy - Coding Assistance</span></em></p><p><em><span>OwneTrick - Internal Co-operation</span></em></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-27" class="popper -block"><a href="https://gamejolt.com/@IIDEPII" class=""><span><span>@IIDEPII</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/6587036-qqkqid9i-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> - Former voice actor for John</span><p></p><p><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@MurriD" class=""><span title="@MurriD"><span>@MurriD</span></span></a></span><span> - Former Modeler/Renderer</span></p><p><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@MrArkham" class=""><span title="@MrArkham"><span>@MrArkham</span></span></a></span><span> - Former coder</span></p></li></ul><p><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23horror" class=""><span>#horror</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fangame" class=""><span>#fangame</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fivenightsatfreddys" class=""><span>#fivenightsatfreddys</span></a><span> </span><a href="https://gamejolt.com/search?q=%23dormitabis" class=""><span>#dormitabis</span></a><span> </span><a href="https://gamejolt.com/search?q=%23dormitabisremastered" class=""><span>#dormitabisremastered</span></a><span>  </span><a href="https://gamejolt.com/search?q=%23adventure" class=""><span>#adventure</span></a><span> </span><a href="https://gamejolt.com/search?q=%23action" class=""><span>#action</span></a><span> </span><a href="https://gamejolt.com/search?q=%23pointnclick" class=""><span>#pointnclick</span></a><span> </span><a href="https://gamejolt.com/search?q=%23survival" class=""><span>#survival</span></a><span> </span><a href="https://gamejolt.com/search?q=%23multiplayer" class=""><span>#multiplayer</span></a><span> </span><a href="https://gamejolt.com/search?q=%23other" class=""><span>#other</span></a></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

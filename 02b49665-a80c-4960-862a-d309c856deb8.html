@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>[The Fredbear Archives]</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> [The Fredbear Archives]</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:08</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 16:19:54</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-"></a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Arcade">Arcade</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-Rarithlynx">Rarithlynx</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/thefredbeararchives/344050" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><h3><p><span>STORY</span></p></h3><p><em><strong><span>Miles Ahead Storage &amp; Distribution, Inc.</span></strong></em><span> is a place located in Oxford, UK. A warehouse that has been keeping numerous items from the </span><em><span>Fredbear and Friends</span></em><span> establishment safe, until one late night.</span></p><p><em><span>Several days following the company's radio silence, you, in search of a missing friend decide to give the warehouse a little visit, but things aren't as they seem.</span></em></p><p><em><span>You don't have much time before </span></em><em><strong><span>they</span></strong></em><em><span> get to you.</span></em></p><hr><h3><p><span>ABOUT</span></p></h3><p><em><strong><span>[The Fredbear Archives]</span></strong></em><span> </span><em><span>is a short horror-themed arcade experience based on the Five Nights at Freddy's saga, and is a spin-off to the Fredbear and Friends series. The main objective of the game is to escape by completing certain tasks and solving puzzles in a limited period of time.</span></em></p><hr><h4><p><span>FEATURES:</span></p></h4><ul><li><p><span>Multiple ways to escape</span></p></li><li><p><span>Full free-roam</span></p></li><li><p><span>Cutscenes</span></p></li><li><p><span>Trophies</span></p></li><li><p><span>Puzzles</span></p></li></ul><hr><p><strong><span>WARNING</span></strong></p><p><span>A powerful gaming computer is required to play the game on higher graphical settings.</span></p><p><span>This game has been tested at a stable 150 - 200 frames per second with the following specifications:</span></p><ul><li><p><strong><span>OS</span></strong><span>: Windows 10 Home 64-bit</span></p></li><li><p><strong><span>Graphics Card</span></strong><span>: Nvidia GTX 1050</span></p></li><li><p><strong><span>Processor</span></strong><span>: Intel Core i5-7400 CPU @ 3.00GHz (4 CPUs)</span></p></li><li><p><strong><span>Memory</span></strong><span>: 8GB RAM</span></p></li></ul><hr><p><strong><span>Credits</span></strong></p><ul><li><p><em><strong><a href="https://gamejolt.com/@Rarithlynx" title="https://gamejolt.com/@Rarithlynx"><span>Rarithlynx</span></a></strong></em><span> | </span><em><span>Programming, Modeling, Texturing, Audio, Animations</span></em></p></li><li><p><em><strong><a href="https://gamejolt.com/@Carnage" title="https://gamejolt.com/@Carnage"><span>Carnage</span></a></strong></em><span> | </span><em><span>Programming</span></em></p></li><li><p><em><strong><a href="https://gamejolt.com/@supersonic2233" title="https://gamejolt.com/@supersonic2233"><span>supersonic2233</span></a></strong></em><span>/</span><em><strong><a href="https://gamejolt.com/@Khalood" title="https://gamejolt.com/@Khalood"><span>Khalood</span></a></strong></em><span> | </span><em><span>Beta Testing</span></em></p></li><li><p><em><strong><a rel="nofollow noopener" target="_blank" href="https://www.deviantart.com/nathanzicaoficial" title="https://www.deviantart.com/nathanzicaoficial"><span>NathanzicaOficial</span></a></strong></em><em><strong><span>/</span></strong></em><em><strong><a rel="nofollow noopener" target="_blank" href="https://www.deviantart.com/tyrexchip" title="https://www.deviantart.com/tyrexchip"><span>Tyrexchip</span></a></strong></em><em><strong><span>/</span></strong></em><em><strong><a rel="nofollow noopener" target="_blank" href="https://www.deviantart.com/a1234agamer" title="https://www.deviantart.com/a1234agamer"><span>a1234agamer</span></a></strong></em><em><strong><span>/Spygineer</span></strong></em><span> | </span><em><span>Animatronic Models</span></em></p></li><li><p><em><strong><a href="https://gamejolt.com/@Khalood" title="https://gamejolt.com/@Khalood"><span>Khalood</span></a></strong></em><span> | Minor </span><em><span>Animations</span></em></p></li><li><p><em><strong><a rel="nofollow noopener" target="_blank" href="https://twitter.com/Aaron_TechTAS" title="https://twitter.com/Aaron_TechTAS"><span>TechTAS</span></a></strong></em><em><strong><span>/</span></strong></em><em><strong><a rel="nofollow noopener" target="_blank" href="https://www.castingcall.club/m/NightmareSnake" title="https://www.castingcall.club/m/NightmareSnake"><span>NightmareSnake</span></a></strong></em><em><strong><span>/</span></strong></em><em><strong><a rel="nofollow noopener" target="_blank" href="https://twitter.com/HarveyB_VO" title="https://twitter.com/HarveyB_VO"><span>HarveyB</span></a></strong></em><em><strong><span>/</span></strong></em><em><strong><a rel="nofollow noopener" target="_blank" href="https://www.castingcall.club/m/Ciel%20DeVille" title="https://www.castingcall.club/m/Ciel%20DeVille"><span>Ciel DeVille</span></a></strong></em><em><strong><span>/</span></strong></em><em><strong><a rel="nofollow noopener" target="_blank" href="https://twitter.com/tarrelion" title="https://twitter.com/tarrelion"><span>Tarrelion</span></a></strong></em><em><strong><span>/</span></strong></em><em><strong><a rel="nofollow noopener" target="_blank" href="https://www.youtube.com/channel/UCHgYdpLEy59XKbiruPSHA6g" title="https://www.youtube.com/channel/UCHgYdpLEy59XKbiruPSHA6g"><span>Padre Snowmizzle</span></a></strong></em><em><strong><span>/</span></strong></em><em><strong><a rel="nofollow noopener" target="_blank" href="https://www.youtube.com/channel/UCJsVw33LY57b_kHX54FfWpA" title="https://www.youtube.com/channel/UCJsVw33LY57b_kHX54FfWpA"><span>FuschiaButter</span></a></strong></em><em><strong><span>/</span></strong></em><em><strong><a rel="nofollow noopener" target="_blank" href="https://www.youtube.com/channel/UCvu9O4j9dLQNg5-gOyPLAZw" title="https://www.youtube.com/channel/UCvu9O4j9dLQNg5-gOyPLAZw"><span>Reed Phillips-Donat</span></a></strong></em><span> | </span><em><span>Voice Acting</span></em></p></li></ul><p><strong><span>Other Credits</span></strong><br><span>Music:</span><br><span>Liam Seagrave ~ Lurking In The Shadows</span><br><span>Kevin MacLeod ~ Dread (Small bits)</span></p><p><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23arcade" class=""><span>#arcade</span></a><span> </span><a href="https://gamejolt.com/search?q=%23horror" class=""><span>#horror</span></a><span> </span><a href="https://gamejolt.com/search?q=%23puzzle" class=""><span>#puzzle</span></a><span> </span><a href="https://gamejolt.com/search?q=%23survival" class=""><span>#survival</span></a></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

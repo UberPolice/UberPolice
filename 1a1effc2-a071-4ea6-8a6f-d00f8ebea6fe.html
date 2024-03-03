@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>TGV Voyages Train Simulator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> TGV Voyages Train Simulator</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 11:48:58</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 11:54:29</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-6/16/2016">6/16/2016</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Simulator">Simulator</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-Dovetail Games">Dovetail Games</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_publisher_ascending_name_ascending.html#quicklink-Dovetail Games">Dovetail Games</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="http://www.train-simulator.com" target="_blank">Official</a><br/><a href="https://www.twitch.tv/directory/game/TGV%20Voyages%20Train%20Simulator" target="_blank">Twitch</a><br/><a href="https://store.steampowered.com/app/443910" target="_blank">Steam</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					TGV Voyages allows you to experience high speed train travel through the French countryside in Train Simulator. This is a standalone version of Train Simulator that has limited content. See below for more information.The high speed railways of France, dominated by the iconic TGV® Duplex, are brought to life in the breathtaking new Ligne Grande Vitesse: Marseille Saint-Charles to Avignon-TGV route for Train Simulator.<br><br>Construction of the LGV Méditerranée began in 1996, designed as a dedicated high speed line that spans over 160 miles to connect the South-East of France to the nation’s capital, Paris. The LGV Méditerranée extends from the end of the LGV Rhône-Alpes in Valence and terminates at Marseille via Avignon and Aix-en-Provence.<br>Opened in 2001, the LGV Méditerranée is operated by SNCF® with TGV Duplex high speed trains, operating on the 25kV AC catenary system, capable of reaching 320 km/h. These revolutionary high speed trains slashed journey times to the South coast of France with TGVs now handling the vast majority of all journeys in France, covering some 750 km (470 miles) in around 3 hours – faster than some domestic airlines.<br><br>The line serves a total of 4 stations, featuring three purpose-built structures, the Gare de Valence TGV, a uniquely built multi-level station allowing easy transfer between the high speed and local services, Gare d’Avignon TGV, made popular by its close proximity to Avignon city centre and Gare d'Aix-en-Provence TGV, allowing easy travel into the north of Marseille and Marseille Airport, accessible by regular bus services. The final station is Marseille-Saint-Charles - a terminus station previously built to serve the surrounding area and the French Riviera, access to this station is via the classic French main lines.<br><br>Due to the undulating nature of Southern France’s terrain, the LGV Méditerranée features many steep inclines and declines, not to mention the impressive number of vast cuttings, tunnels and viaducts that traverse the landscape, the longest tunnel being over 8 km (5 Miles) long. Not only is the outstanding scenery a wonder to behold, the LGV Med. regularly sees 300 – 320 km/h operation providing a fast, reliable service with the beautiful southern France countryside flying past the upper and lower windows.<br><br>The route is equipped with the TVM430 (Transmission Voie-Machine) signalling system, a revolutionary in-cab signalling system designed for operating high speed trains in high capacity. Conventional signalling is not practical for very high speed routes, as drivers have very little time to see and react to what flies past the windscreen. TVM430 displays information in the cab telling the driver what speed he should be travelling at, without the need for conventional track-side equipment.<br>Included with the 100km Marseille to Avignon high speed route is the iconic TGV Duplex in SNCF livery.<h2 class="bb_tag">Scenarios</h2><ul class="bb_ul"><li>BAL Signalling Tutorial<br></li><li>TVM430 Signalling Tutorial<br></li><li>Marseille Saint-Charles to Avignon<br></li><li>Avignon to Marseille Saint-Charles<br></li><li>Aix-en-Provence to Marseille Depot<br></li><li>Aix-en-Provence TGV to Avignon TGV<br></li><li>Avignon TGV to Marseille Saint-Charles</li></ul><h2 class="bb_tag">Key Features</h2><ul class="bb_ul"><li>105km (65 mile) LGV route from Marseille Saint-Charles and Avignon TGV<br></li><li>Stunning southern France scenery, including numerous tunnels and high speed viaducts<br></li><li>Locomotive yard at Marseille<br></li><li>TGV Duplex in SNCF livery<br></li><li>Scenarios for the route<br></li><li>Quick Drive compatible<br></li><li>Download size: 1300 mb</li></ul><br>For the complete Train Simulator experience, you will need to upgrade to the full version of Train Simulator. You can do this by selecting 'upgrade' from the in-game front menu. Below is a list of additional features in Train Simulator that are not available in TGV Voyages:<br><br><ul class="bb_ul"> <li>Career mode<br></li><li> In game store<br></li><li> Access to Steam Workshop<br></li><li> Expand your Train Simulator collection with add-ons</li></ul><br><br>At any time, you can upgrade to the full version of Train Simulator, and the content you bought in TGV Voyages will automatically appear in the full version of Train Simulator.<br><br>Ever dreamed of driving trains? Now you can! Train Simulator brings to life some amazing extreme train challenges on real world routes and delivers the ultimate railway hobby.
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
