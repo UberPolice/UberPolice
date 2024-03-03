@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chica&#39;s Party World: REBAKED</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Chica&#39;s Party World: REBAKED</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:07</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:55:35</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-"></a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-CPWDevelopment">CPWDevelopment</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/cpwrebaked/676548" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 338px; max-width: 600px; max-height: 338px; width: 600px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(100, 41, 53); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/10/48/676548/media/game-description/gameplaygif-cupshfnu.gif" alt="gameplaygif.gif" title="gameplaygif.gif"></div></div><!----></div><!----></div></div><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 238.281px; max-width: 1280px; max-height: 500px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(122, 69, 90); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/27120495-4r5svxc7-v4.webp" alt="cpw_gj_banner_1.png" title="cpw_gj_banner_1.png"></div></div><!----></div><!----></div></div><p><span>The year is 2023, after many years of being open "</span><strong><span>Chica's Party World</span></strong><span>" is preparing for a major renovation! But with any high-end establishment, a form of protection is necessary. This is where you come in!</span></p><p><span>Upon being found in storage, you've been re-activated with the task of keeping the place guarded. Monitor cameras, patrol the premises, and most importantly complete the tasks you've been provided. But... why? Wait, why are you questioning it? It's your duty, </span><em><strong><span>so get to work</span></strong></em><strong><span>.</span></strong><span> </span><em><strong><span>Now.</span></strong></em></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 238.281px; max-width: 1280px; max-height: 500px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(116, 56, 78); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/22607507-bndndnja-v4.webp" alt="cpw_gj_banner_2.png" title="cpw_gj_banner_2.png"></div></div><!----></div><!----></div></div><p><code><span>"Will you break the system? Or will it break you?"</span></code></p><p><strong><span>IMPORTANT NOTICE: TheresNoSteak no longer has any association with this game. For any questions related to Chica's Party World Rebaked, please refer to </span></strong><strong><span style="display: inline-block; white-space: normal;"></span></strong></p><div data-v-f0fc8035="" id="popper-11" class="popper -block"><strong><a href="https://gamejolt.com/@PoisonousPastels" class=""><span><span>@PoisonousPastels</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/8249510-uazmrz9x-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></strong></div><strong><span>. All credits have been retained for clarity sake.</span></strong><br><br><strong><span>Chica's Party World: REBAKED</span></strong><span> is the official reboot / re-imagining of the original game from 2018 by </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-12" class="popper -block"><a href="https://gamejolt.com/@PoisonousPastels" class=""><span><span>@PoisonousPastels</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/8249510-uazmrz9x-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> and </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-13" class="popper -block"><a href="https://gamejolt.com/@BonBun_Studios" class=""><span><span>@BonBun_Studios</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4185885-rhpbjckz-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span>. The game sees you playing as a security robot designated with the task of watching over the building and running basic maintenance tasks until proper renovations begin. However (obviously) things aren't quite what they seem at first.</span><p></p><p><span>This fangame has been developed by </span><strong><span style="display: inline-block; white-space: normal;"></span></strong></p><div data-v-f0fc8035="" id="popper-14" class="popper -block"><strong><a href="https://gamejolt.com/@PoisonousPastels" class=""><span><span>@PoisonousPastels</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/8249510-uazmrz9x-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></strong></div><span> + </span><strong><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-15" class="popper -block"><a href="https://gamejolt.com/@TheresNoSteak" class=""><span><span>@TheresNoSteak</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1650219-crop0_6_443_449-kfcpazsk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span></strong><span>!</span><p></p><p><span>"Five Nights at Freddy's" belongs to Scott Cawthon, all rights reserved.</span></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 238.281px; max-width: 1280px; max-height: 500px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(107, 64, 87); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/22607511-zqwvceqa-v4.webp" alt="cpw_gj_banner_3.png" title="cpw_gj_banner_3.png"></div></div><!----></div><!----></div></div><h4><p><span>TECHNICAL ASPECTS</span></p></h4><p><strong><span>Game created as a joint project between</span></strong><br><strong><span style="display: inline-block; white-space: normal;"></span></strong></p><div data-v-f0fc8035="" id="popper-16" class="popper -block"><strong><a href="https://gamejolt.com/@TheresNoSteak" class=""><span><span>@TheresNoSteak</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1650219-crop0_6_443_449-kfcpazsk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></strong></div><strong><span> and </span></strong><strong><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-17" class="popper -block"><a href="https://gamejolt.com/@PoisonousPastels" class=""><span><span>@PoisonousPastels</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/8249510-uazmrz9x-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span></strong><p></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-18" class="popper -block"><a href="https://gamejolt.com/@PoisonousPastels" class=""><span><span>@PoisonousPastels</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/8249510-uazmrz9x-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>: </span><code><span>Original Creator of Chica's, Director, Misc Visuals, Modeling, Writing</span></code><p></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-19" class="popper -block"><a href="https://gamejolt.com/@TheresNoSteak" class=""><span><span>@TheresNoSteak</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1650219-crop0_6_443_449-kfcpazsk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span>: </span><code><span>Director, Programmer, Modeling, Sound Design, Misc Visuals</span></code><p></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-20" class="popper -block"><a href="https://gamejolt.com/@zaya_moone" class=""><span><span>@zaya_moone</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1977122-crop67_47_1015_995-dhnmybnv-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>: </span><code><span>Cutout Artwork</span></code><p></p><p><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@shadic749" class=""><span title="@shadic749"><span>@shadic749</span></span></a></span><span>: </span><code><span>Cutscene Artwork</span></code></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-21" class="popper -block"><a href="https://gamejolt.com/@BonBun_Studios" class=""><span><span>@BonBun_Studios</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4185885-rhpbjckz-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>: </span><code><span>Original Creator of Chica's, 2018 Tracks</span></code><p></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-22" class="popper -block"><a href="https://gamejolt.com/@lucinaa" class=""><span><span>@lucinaa</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3129253-crop122_139_795_812-ll-iswycyxm-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>: </span><code><span>New Soundtracks + 2018 Track Remixes</span></code><p></p><hr><h4><p><span>VOICE CAST</span></p></h4><p><span>Ocie: </span><code><span>Chica the Chicken</span></code></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-23" class="popper -block"><a href="https://gamejolt.com/@TheUnitedNates" class=""><span><span>@TheUnitedNates</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4721028-dhtdxejp-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>: </span><code><span>Security</span></code><p></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-24" class="popper -block"><a href="https://gamejolt.com/@PoisonousPastels" class=""><span><span>@PoisonousPastels</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/8249510-uazmrz9x-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>: </span><code><span>Phone Caller</span></code><p></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-25" class="popper -block"><a href="https://gamejolt.com/@TheresNoSteak" class=""><span><span>@TheresNoSteak</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1650219-crop0_6_443_449-kfcpazsk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span>: </span><code><span>Answering Machine, The Silver Chicken</span></code><p></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-26" class="popper -block"><a href="https://gamejolt.com/@RustyRed" class=""><span><span>@RustyRed</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3688013-crop172_96_572_496-r2zaxztw-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span>: </span><code><span>Russel "Redbear"</span></code><p></p><p><span>Christina Borer: </span><code><span>Tophat "White Rabbit"</span></code></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-27" class="popper -block"><a href="https://gamejolt.com/@FunfettiSundae" class=""><span><span>@FunfettiSundae</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1708427-crop290_205_700_615-sknni8y8-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>: </span><code><span>Lolbyte the Pirate</span></code><p></p><hr><h4><p><span>SPECIAL THANKS</span></p></h4><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-28" class="popper -block"><a href="https://gamejolt.com/@HackGameX294" class=""><span><span>@HackGameX294</span>   <span style="position: relative; display: inline-block;"><img src="https://secure.gravatar.com/avatar/9b7771aacbc0ee21a04d1770f3f106b5?s=200&amp;r=pg&amp;d=https%3A%2F%2Fs.gjcdn.net%2Fimg%2Fno-avatar-3.png" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-29" class="popper -block"><a href="https://gamejolt.com/@SqueaksDCorgeh" class=""><span><span>@SqueaksDCorgeh</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1667477-9enptshd-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-30" class="popper -block"><a href="https://gamejolt.com/@BonBun_Studios" class=""><span><span>@BonBun_Studios</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4185885-rhpbjckz-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-31" class="popper -block"><a href="https://gamejolt.com/@zaya_moone" class=""><span><span>@zaya_moone</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1977122-crop67_47_1015_995-dhnmybnv-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-32" class="popper -block"><a href="https://gamejolt.com/@martinarthur" class=""><span><span>@martinarthur</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2474548-crop100_0_700_600-sj2j2hbk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-33" class="popper -block"><a href="https://gamejolt.com/@FazieFunbear" class=""><span><span>@FazieFunbear</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4407664-kcg2im2u-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-34" class="popper -block"><a href="https://gamejolt.com/@GhostyAnne" class=""><span><span>@GhostyAnne</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/847001-fqxk8u3d-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-35" class="popper -block"><a href="https://gamejolt.com/@psonday" class=""><span><span>@psonday</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/857195-bckvmrrk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-36" class="popper -block"><a href="https://gamejolt.com/@STF_Studios" class=""><span><span>@STF_Studios</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3573309-tgudg4jm-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><hr><p><span>Some sounds have been taken from the original 2018 demo; Most base sounds provided by </span><a rel="nofollow noopener" target="_blank" href="https://freesound.org/" title="freesound.org"><span>freesound.org</span></a><span> under the Creative Commons 0 License.</span></p><p><strong><span>"Chica's Party World: REBAKED"</span></strong><span> is a fangame of Scott Cawthon's </span><strong><span>"Five Nights at Freddy's"</span></strong><span>, it exists purely as a fan project for fun and is entirely nonprofit.</span></p><p><strong><span>Do not redistribute this project, especially not for money of any kind.</span></strong></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 338px; max-width: 600px; max-height: 338px; width: 600px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(63, 92, 104); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/10/48/676548/media/game-description/thumbnailgif-waezkdey.gif" alt="thumbnailgif.gif" title="thumbnailgif.gif"></div></div><!----></div><!----></div></div><hr><p><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23arcade" class=""><span>#arcade</span></a><span> </span><a href="https://gamejolt.com/search?q=%23pointnclick" class=""><span>#pointnclick</span></a><span> </span><a href="https://gamejolt.com/search?q=%23horror" class=""><span>#horror</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fangame" class=""><span>#fangame</span></a><span> </span><a href="https://gamejolt.com/search?q=%23retro" class=""><span>#retro</span></a><span> </span><a href="https://gamejolt.com/search?q=%23survival" class=""><span>#survival</span></a><span> </span><a href="https://gamejolt.com/search?q=%23strategy" class=""><span>#strategy</span></a><span> </span><a href="https://gamejolt.com/search?q=%23cpwrebaked" class=""><span>#cpwrebaked</span></a><span> </span><a href="https://gamejolt.com/search?q=%23scifi" class=""><span>#scifi</span></a><span> </span><a href="https://gamejolt.com/search?q=%23chicaspartyworld" class=""><span>#chicaspartyworld</span></a></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

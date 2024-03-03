@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Return to Bloody Nights (Classic)</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> The Return to Bloody Nights (Classic)</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:08</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 16:09:06</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-3/28/2023">3/28/2023</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Point-and-click">Point-and-click</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-𝐊𝐚𝐳𝐨𝐯𝐬𝐤𝐲™">𝐊𝐚𝐳𝐨𝐯𝐬𝐤𝐲™</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/thereturntobloodynights/595647" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><p><span>———————— A FNaF fan game  made by Twisted Mind Games ————————</span></p><h4><p><span>&nbsp;&nbsp;                     &nbsp;</span><strong><span>Links:</span></strong><span> </span><a rel="nofollow noopener" target="_blank" href="https://www.youtube.com/@TheMadManStudiosOfficial" title="https://www.youtube.com/@TheMadManStudiosOfficial"><span>YouTube</span></a><span> — </span><a rel="nofollow noopener" target="_blank" href="https://www.youtube.com/watch?v=EYnSDUBkmTk&amp;t=12s" title="https://www.youtube.com/watch?v=EYnSDUBkmTk&amp;t=12s"><span>Trailer </span></a><span> —  </span><a rel="nofollow noopener" target="_blank" href="https://twitter.com/TwistedMindGMS" title="https://twitter.com/TwistedMindGMS"><span>Twitter</span></a><span> — </span><a rel="nofollow noopener" target="_blank" href="https://discord.gg/hYM8AGEPu8" title="https://discord.gg/hYM8AGEPu8"><span>Discord</span></a><br><br><span>                                                    </span><strong><span>The Return to Bloody Nights (Classic)</span></strong></p></h4><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 325px; max-width: 593px; max-height: 325px; width: 593px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(60, 52, 43); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/9/147/595647/media/game-description/record_2022_09_05_03_32_45_307-ngrwr4rr.gif" alt="record_2022_09_05_03_32_45_307.gif" title="record_2022_09_05_03_32_45_307.gif"></div></div><!----></div><!----></div></div><p><span>This Game is a love letter to FNAF 1. Lore focused game with simple gameplay.</span><br><span>New </span><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fangame" class=""><span>#fangame</span></a><span> inspired by the Original 4 FNaF games and Books produced by Scott Cawthon. The game takes it's own take on the timeline and crucial events of the Five Nights at Freddy's series. Brings back old style atmosphere and gameplay with introducing new mechanics by combining the best elements of official games.</span><br><span>It's a REBORN game of previous one - </span><strong><a href="https://gamejolt.com/games/bnafdemo/350787" title="https://gamejolt.com/games/bnafdemo/350787"><span>Bloody Nights at Freddy's</span></a></strong><span>.</span><br><br><span>                                                                       </span><strong><span>S T O R Y</span></strong><br><span>The Return to Bloody Nights is a fan game that takes players back in 1983. The early days of Fazbear Entertainment, when good friends named William Afton and Henry Emily first founded Fredbear's Family Diner and introduced the world to animatronics like Fredbear and Spring Bonnie. After a while, one of the two men lost his sanity and began embarking upon a gruesome killing spree. You have to play as the new Security Guard at Fredbears's diner and you have to discover what actually happened few weeks before you were hired for this job.</span><br><span>As the story unfolds, players will experience the events leading up to the original Five Nights at Freddy's games, and witness the rise of the animatronics as they are possessed by the spirits of murdered children. Can you survive the bloody nights and uncover the truth behind the Fazbear Entertainment tragedies? </span><br><br><strong><span>The Return to Bloody Nights</span></strong><span>:</span><br><strong><span>F E A T U R E S</span></strong></p><ul><li><ul><li><p><span>A story rooted in the original games and books.</span></p></li><li><p><span>Multiple Endings.</span></p></li><li><p><span>High-quality graphics rendered on Blender Cycles.</span></p></li><li><p><span>8-Bit Minigames.</span></p></li><li><p><span>Cutscenes.</span></p></li><li><p><span>Custom Night and Challenges.</span></p></li><li><p><span>Additional content with new locations and characters.</span></p></li></ul><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 320.625px; max-width: 1280px; max-height: 720px; width: 570px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(90, 79, 79); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/600/18540307-avgftpmc-v4.webp" alt="warning2023.png" title="warning2023.png"></div></div><!----></div><!----></div></div></li></ul><p><strong><span>F A Q</span></strong></p><ul><li><p><strong><span>When will the game release?</span></strong><br><span>Its out since March 26th/27th 2023.</span></p></li><li><p><strong><span>Will I have to pay for the game?</span></strong><br><span>There is no need, the game is fully free.</span><br><span>However, if you'd like to support me financially, consider donating to my Kofi!</span><br><a rel="nofollow noopener" target="_blank" href="https://ko-fi.com/kazovsky" title="https://ko-fi.com/kazovsky"><span>https://ko-fi.com/kazovsky</span></a></p></li><li><p><strong><span>Is FNAF 1(ANY Game) canon to this universe?</span></strong><br><span>Can't truly confirm anything besides FNAF 1 and 2. Others might be too but not fully as you may know.</span></p></li><li><p><strong><span>Is mobile port in production?</span></strong><br><span>No.</span><br><span>Also, if you see any fan made port from third parties or unauthorized people, we do not take responsibility. The game is only published on this page!</span></p></li></ul><p><strong><span>C R E D I T S</span></strong></p><ul><li><p><strong><span>Game by:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-10" class="popper -block"><a href="https://gamejolt.com/@kazovsky" class=""><span><span>@kazovsky</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/591272-crop56_0_1032_976-n3tp47ic-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-11" class="popper -block"><a href="https://gamejolt.com/@SealDude" class=""><span><span>@SealDude</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2475052-crop78_21_916_859-au7pzfrb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p></li><li><p><strong><span>Director, Writer, and Game Art Director:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-12" class="popper -block"><a href="https://gamejolt.com/@kazovsky" class=""><span><span>@kazovsky</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/591272-crop56_0_1032_976-n3tp47ic-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><p></p></li><li><p><strong><span>Game Designers:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-13" class="popper -block"><a href="https://gamejolt.com/@kazovsky" class=""><span><span>@kazovsky</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/591272-crop56_0_1032_976-n3tp47ic-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-14" class="popper -block"><a href="https://gamejolt.com/@SealDude" class=""><span><span>@SealDude</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2475052-crop78_21_916_859-au7pzfrb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p></li><li><p><strong><span>Character and Environment Artists:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-15" class="popper -block"><a href="https://gamejolt.com/@SealDude" class=""><span><span>@SealDude</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2475052-crop78_21_916_859-au7pzfrb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-16" class="popper -block"><a href="https://gamejolt.com/@kazovsky" class=""><span><span>@kazovsky</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/591272-crop56_0_1032_976-n3tp47ic-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p></li><li><p><strong><span>3D Modeling:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-17" class="popper -block"><a href="https://gamejolt.com/@SealDude" class=""><span><span>@SealDude</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2475052-crop78_21_916_859-au7pzfrb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><p></p></li><li><p><strong><span>Scripting Designers:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-18" class="popper -block"><a href="https://gamejolt.com/@RomanJ" class=""><span><span>@RomanJ</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1677955-crop541_0_1381_840-5jhxjx9i-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-19" class="popper -block"><a href="https://gamejolt.com/@kazovsky" class=""><span><span>@kazovsky</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/591272-crop56_0_1032_976-n3tp47ic-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p></li><li><p><strong><span>Programming/Coding:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-20" class="popper -block"><a href="https://gamejolt.com/@RomanJ" class=""><span><span>@RomanJ</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1677955-crop541_0_1381_840-5jhxjx9i-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><p></p></li><li><p><strong><span>Game Visual Supervisor:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-21" class="popper -block"><a href="https://gamejolt.com/@kazovsky" class=""><span><span>@kazovsky</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/591272-crop56_0_1032_976-n3tp47ic-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><p></p></li><li><p><strong><span>8-Bit Minigames:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-22" class="popper -block"><a href="https://gamejolt.com/@LucasdeKuyper" class=""><span><span>@LucasdeKuyper</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1176637-crop231_164_1352_1285-qxpyifqj-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> (Fredbear Rush), </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-23" class="popper -block"><a href="https://gamejolt.com/@kazovsky" class=""><span><span>@kazovsky</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/591272-crop56_0_1032_976-n3tp47ic-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-24" class="popper -block"><a href="https://gamejolt.com/@RomanJ" class=""><span><span>@RomanJ</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1677955-crop541_0_1381_840-5jhxjx9i-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p></li><li><p><strong><span>Lead Concept Artist:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-25" class="popper -block"><a href="https://gamejolt.com/@kazovsky" class=""><span><span>@kazovsky</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/591272-crop56_0_1032_976-n3tp47ic-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><p></p></li><li><p><strong><span>Cutscenes Art:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@thetrue_ragu" class=""><span title="@thetrue_ragu"><span>@thetrue_ragu</span></span></a></span><span> (Instagram)</span></p></li><li><p><strong><span>Voice Director:</span></strong><span> Jessy Causey </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-26" class="popper -block"><a href="https://gamejolt.com/@JessyCausey" class=""><span><span>@JessyCausey</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/6011331-mbxpb9bs-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><p></p></li><li><p><strong><span>Voice Actors:</span></strong><span> Jessy Causey as William Afton, Chris Mitchell as Henry Emily, Elijah Boyd as Wathel Broggie, Nikki Biro as Karen The Assistent</span></p></li><li><p><strong><span>Audio and Effects Supervisor:</span></strong><span> Kazovsky Aleksandr</span></p></li><li><p><strong><span>Special Thanks:</span></strong><span> Various contributors, translation teams, and supporters.</span></p></li></ul><p><strong><span>Special Thanks</span></strong><span>: </span><br><span>Night 6 Ending Cutscene Music by Kittyopus (YouTube </span><strong><a rel="nofollow noopener" target="_blank" href="https://www.youtube.com/@Kittyopus" title="https://www.youtube.com/@Kittyopus"><span>https://www.youtube.com/@Kittyopus</span></a></strong><span>)</span><br><span>Secret cutscene/menu music by Dreday Games</span><br><span>Unkvoice for helping with story planning and translation </span><br><span>Battington editing teaser trailer/VHS JJKennedy, DimaJazdd, Valedmirro KDM, Vlat, Imran </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-27" class="popper -block"><a href="https://gamejolt.com/@priest" class=""><span><span>@Priest</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4253122-crop20_0_480_460-rfhaeaye-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>, </span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@PapaRaziel666" class=""><span title="@PapaRaziel666"><span>@PapaRaziel666</span></span></a></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-28" class="popper -block"><a href="https://gamejolt.com/@FOKIFOX" class=""><span><span>@FokiFox</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1868653-nq8z7ycc-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><br><span>Hideo Kojima </span><br><br><span>Some of the soundtracks and sounds were taken from various artists and we want to thank them all too. </span><br><span>Thanks to the translation teams who helped with some of the languages that are now included in the game:</span><p></p><ul><li><p><span>Spanish: Crimsonware; Brucecv; Maglor el Mago; Pau_aventurer; Sneak; SillyKat.</span></p></li><li><p><span>Portuguese: Raichu; RealArturDR; The Hollow Knight 205.</span></p></li><li><p><span>Polish: Butla; Rojax.</span></p></li><li><p><span>French: MathyVG; call of nulos.</span></p></li><li><p><span>Ukrainian: Vlat; Boy395Game.</span></p></li><li><p><span>Russian: Unkvoice; JJKennedy.</span></p></li></ul><p><span>DISCLAIMER:</span></p><ul><li><p><span>Please do NOT reupload this game on any platform or service/webpages WITHOUT A PERMISSION FROM OUR TEAM.</span></p></li><li><p><span>This game is 100% free to download and play. You should not have to pay ANY AMOUNT to gain this game. If you downloaded this game from a different site or page, please let us know! WE DO NOT TAKE RESPONSIBILITY FOR ANY DISTRIBUTION OF THE GAME OTHER THAN ON THE OFFICIAL GAMEJOLT PAGE.</span></p></li></ul><p><span>2023 </span><a href="https://gamejolt.com/search?q=%23fangame" class=""><span>#fangame</span></a><span> </span><a href="https://gamejolt.com/search?q=%23horror" class=""><span>#horror</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23retro" class=""><span>#retro</span></a><span> </span><a href="https://gamejolt.com/search?q=%23scifi" class=""><span>#scifi</span></a><span> </span><a href="https://gamejolt.com/search?q=%23survival" class=""><span>#survival</span></a><span> </span><a href="https://gamejolt.com/search?q=%23pointnclick" class=""><span>#pointnclick</span></a><span> </span><a href="https://gamejolt.com/search?q=%23puzzle" class=""><span>#puzzle</span></a><span> </span><a href="https://gamejolt.com/search?q=%23strategy" class=""><span>#strategy</span></a><span> </span><a href="https://gamejolt.com/search?q=%23analog" class=""><span>#analog</span></a><span> </span><a href="https://gamejolt.com/search?q=%23other" class=""><span>#other</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf </span></a><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

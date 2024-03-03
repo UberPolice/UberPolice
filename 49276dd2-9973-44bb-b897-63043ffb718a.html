@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Forgotten At Fredbear&#39;s</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Forgotten At Fredbear&#39;s</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:07</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:54:05</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-"></a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-Jacorn">Jacorn</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/Forgotten/686230" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 244px; max-width: 2500px; max-height: 1000px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(145, 83, 79); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/22881926-ixbaydvp-v4.webp" alt="logo.png" title="logo.png"></div></div><!----></div><!----></div></div><h3><p><strong><span>"Uncover the secrets of Fredbear's Family Diner..."</span></strong></p></h3><hr><p><code><span>In the aftermath of a tragic incident, the notorious diner remains open against all odds. Henry Emily and William Afton persist in their relentless work, striving to keep the restaurant afloat. As you step into the shoes of John Hudson, a father recently laid off, your primary concern becomes providing for your family. Rumors circulate about a potential job opening at "Fredbear's Family Diner," urging you to seize the opportunity before it slips away. Little do you know the unforeseen consequences that await you as you unknowingly become entangled in a dark and twisted game orchestrated by two vengeful souls. The animatronics, once innocent and joyful, have been reprogrammed. Night after night, you must navigate the haunted halls, surviving and unraveling the enigmatic secrets concealed within the restaurant's walls...</span></code></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 244px; max-width: 1200px; max-height: 480px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/29344215-9yxrddq3-v4.webp" alt="foxy_gameplay.png" title="foxy_gameplay.png"></div></div><!----></div><!----></div></div><h3><p><strong><span>Night Shift</span></strong></p></h3><pre data-v-0e82b466="" class="content-viewer-code-block">		
+			<span data-v-0e82b466="">This game features gameplay inspired by "Five Nights at Freddy's", but with its own distinct mechanics.</span>
+		
+	</pre><h4><p><strong><span>Post-Nights</span></strong></p></h4><pre data-v-0e82b466="" class="content-viewer-code-block">		
+			<span data-v-0e82b466="">Engage in additional activities that are available after completing the main nights.</span>
+		
+	</pre><h4><p><strong><span>Minigames</span></strong></p></h4><pre data-v-0e82b466="" class="content-viewer-code-block">		
+			<span data-v-0e82b466="">A fresh take on the classic "8-bit minigames" from the original game.</span>
+		
+	</pre><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 244px; max-width: 1200px; max-height: 480px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/29344227-r45idv7t-v4.webp" alt="bb_credits.png" title="bb_credits.png"></div></div><!----></div><!----></div></div><p><strong><span>Director:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-10" class="popper -block"><a href="https://gamejolt.com/@Jacorn" class=""><span><span>@Jacorn</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1075519-mt6dryqq-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><p></p><p><strong><span>Assistance:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-11" class="popper -block"><a href="https://gamejolt.com/@MUSINKS" class=""><span><span>@MUSINKS</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5613518-wdsy4ug5-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-12" class="popper -block"><a href="https://gamejolt.com/@Weshek" class=""><span><span>@Weshek</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1780186-crop18_0_462_444-ybr9fcwz-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><strong><span>3D Modeling: </span></strong><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-13" class="popper -block"><a href="https://gamejolt.com/@Spurk" class=""><span><span>@Spurk</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1776547-bn9hfwha-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-14" class="popper -block"><a href="https://gamejolt.com/@geb_" class=""><span><span>@geb_</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2252834-crop12_47_412_447-nizunqun-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-15" class="popper -block"><a href="https://gamejolt.com/@SMArtist" class=""><span><span>@SMArtist</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3514173-crop174_172_1710_1708-wknhngps-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-16" class="popper -block"><a href="https://gamejolt.com/@GrayHat_productions" class=""><span><span>@GrayHat_productions</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3193464-crop40_18_742_720-6xzkp5hq-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-17" class="popper -block"><a href="https://gamejolt.com/@PhantronGames" class=""><span><span>@PhantronGames</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4229638-pgmeyris-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-18" class="popper -block"><a href="https://gamejolt.com/@Spacejunx" class=""><span><span>@Spacejunx</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5689708-crop118_4_692_578-wsutb67n-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-19" class="popper -block"><a href="https://gamejolt.com/@Jacorn" class=""><span><span>@Jacorn</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1075519-mt6dryqq-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p><p><strong><span>Renders/Animating:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-20" class="popper -block"><a href="https://gamejolt.com/@Jacorn" class=""><span><span>@Jacorn</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1075519-mt6dryqq-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-21" class="popper -block"><a href="https://gamejolt.com/@CokosBeans" class=""><span><span>@CokosBeans</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4203488-byk3tusq-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-22" class="popper -block"><a href="https://gamejolt.com/@MercuryMercM" class=""><span><span>@MercuryMercM</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/6965048-crop36_26_436_426-ntat9vy2-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-23" class="popper -block"><a href="https://gamejolt.com/@ChrisPowellProductions" class=""><span><span>@ChrisPowellProductions</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4504065-crop181_198_645_662-fewdnbki-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-24" class="popper -block"><a href="https://gamejolt.com/@PhantronGames" class=""><span><span>@PhantronGames</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4229638-pgmeyris-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p><p><strong><span>2D Art:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-25" class="popper -block"><a href="https://gamejolt.com/@ReD-Official-" class=""><span><span>@ReD-Official-</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5311529-xkqpgxkj-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-26" class="popper -block"><a href="https://gamejolt.com/@Dentra" class=""><span><span>@Dentra</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4396302-ll-9apqjcqt-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-27" class="popper -block"><a href="https://gamejolt.com/@ewademar" class=""><span><span>@ewademar</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4636865-crop0_0_1103_1103-btemhnje-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-28" class="popper -block"><a href="https://gamejolt.com/@kenZ_" class=""><span><span>@kenZ_</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3440548-crop0_2_509_511-qepicpq4-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-29" class="popper -block"><a href="https://gamejolt.com/@krieger1" class=""><span><span>@krieger1</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5577210-ll-j5qni8es-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><strong><span>Coding: </span></strong><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-30" class="popper -block"><a href="https://gamejolt.com/@BubyGamer11" class=""><span><span>@BubyGamer11</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1233045-rurvxizf-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-31" class="popper -block"><a href="https://gamejolt.com/@GlitchyGlitched" class=""><span><span>@GlitchyGlitched</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2674102-x4mysdka-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-32" class="popper -block"><a href="https://gamejolt.com/@steals" class=""><span><span>@steals</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3205625-crop26_0_507_481-dep4d7kx-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-33" class="popper -block"><a href="https://gamejolt.com/@Rhadamus" class=""><span><span>@Rhadamus</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2488365-crop154_124_554_524-n6ihurbd-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-34" class="popper -block"><a href="https://gamejolt.com/@albinoblackbear" class=""><span><span>@albinoblackbear</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4508535-crop178_125_578_525-sqb6xsga-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><strong><span>Coding Assistance: </span></strong><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-35" class="popper -block"><a href="https://gamejolt.com/@Otis_Le_PoOtis" class=""><span><span>@Otis_Le_PoOtis</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5368450-crop69_81_643_655-kuptcdjn-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-36" class="popper -block"><a href="https://gamejolt.com/@Jacorn" class=""><span><span>@Jacorn</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1075519-mt6dryqq-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-37" class="popper -block"><a href="https://gamejolt.com/@WXAGames" class=""><span><span>@WXAGames</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3880544-cpsvrmfc-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><strong><span>Music:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-38" class="popper -block"><a href="https://gamejolt.com/@hunterallen_" class=""><span><span>@hunterallen_</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4214994-a8th5eiw-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div><span>  </span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@Aidan_OFlynn" class=""><span title="@Aidan_OFlynn"><span>@Aidan_OFlynn</span></span></a></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-39" class="popper -block"><a href="https://gamejolt.com/@3fs" class=""><span><span>@3fs</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1602934-crop280_0_1000_720-mzeqyfub-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p><p><strong><span>Beta testing/Extra Help:</span></strong><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-40" class="popper -block"><a href="https://gamejolt.com/@Diolun" class=""><span><span>@Diolun</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5855377-crop78_0_478_400-ynsbgfx6-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-41" class="popper -block"><a href="https://gamejolt.com/@FazieFunbear" class=""><span><span>@FazieFunbear</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4407664-kcg2im2u-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-42" class="popper -block"><a href="https://gamejolt.com/@Wester" class=""><span><span>@Wester</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3599542-ucvwfxkz-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-59" class="popper -block"><a href="https://gamejolt.com/@Pieceofkake" class=""><span><span>@PieceOfKake</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4987235-nbx7yjp2-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-58" class="popper -block"><a href="https://gamejolt.com/@Chichogames" class=""><span><span>@CHICHOGAMES</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2741519-crop683_33_1292_642-m4e3pbu4-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-64" class="popper -block"><a href="https://gamejolt.com/@SunkenStudios" class=""><span><span>@SunkenStudios</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3376981-rgx4rc78-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-61" class="popper -block"><a href="https://gamejolt.com/@martinarthur" class=""><span><span>@MartinArthur</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/2474548-crop100_0_700_600-sj2j2hbk-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-43" class="popper -block"><a href="https://gamejolt.com/@kenZ_" class=""><span><span>@kenZ_</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3440548-crop0_2_509_511-qepicpq4-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span>  </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-67" class="popper -block"><a href="https://gamejolt.com/@SirFiftyFive" class=""><span><span>@SirFiftyFive</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3231345-zzgczaa5-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p><p><strong><span>Voice Actors/SFX: </span></strong><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-62" class="popper -block"><a href="https://gamejolt.com/@uglymfx" class=""><span><span>@uglymfx</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/7320574-crop0_538_924_1462-ajj8yyyb-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-69" class="popper -block"><a href="https://gamejolt.com/@Pugsrule123321" class=""><span><span>@Pugsrule123321</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5020333-crop0_41_828_869-hjpawcas-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-60" class="popper -block"><a href="https://gamejolt.com/@Keyman" class=""><span><span>@Keyman</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4199789-snne2pkt-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-68" class="popper -block"><a href="https://gamejolt.com/@SirFiftyFive" class=""><span><span>@SirFiftyFive</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3231345-zzgczaa5-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-66" class="popper -block"><a href="https://gamejolt.com/@HarrisonVAChamp" class=""><span><span>@HarrisonVAChamp</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3604007-crop69_17_469_417-ijfkqrki-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-63" class="popper -block"><a href="https://gamejolt.com/@XanderAlsip" class=""><span><span>@XanderAlsip</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5290351-crop54_44_454_444-mf86dzzw-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-44" class="popper -block"><a href="https://gamejolt.com/@MUSINKS" class=""><span><span>@MUSINKS</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/5613518-wdsy4ug5-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-45" class="popper -block"><a href="https://gamejolt.com/@Jacorn" class=""><span><span>@Jacorn</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1075519-mt6dryqq-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-70" class="popper -block"><a href="https://gamejolt.com/@AllanHarboe" class=""><span><span>@AllanHarboe</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/8901912-ycmd5aj2-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span> </span><a rel="nofollow noopener" target="_blank" href="https://www.coreywilder.com/" title="https://www.coreywilder.com/"><span>Corey WIlder</span></a><span> </span><a rel="nofollow noopener" target="_blank" href="https://twitter.com/nickocortez" title="https://twitter.com/nickocortez"><span>Nickcortez</span></a><p></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 244px; max-width: 2500px; max-height: 1000px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(215, 185, 28); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/25178110-wgkev9vf-v4.webp" alt="progress.png" title="progress.png"></div></div><!----></div><!----></div></div><p><strong><span>Models: </span></strong><code><span>90%</span></code></p><p><strong><span>Sound:</span></strong><span> </span><code><span>20%</span></code></p><p><strong><span>Programming:</span></strong><span> </span><code><span>45%</span></code></p><p><strong><span>2D Art: </span></strong><code><span>50%</span></code></p><p><strong><span>Voice Acting:</span></strong><span> </span><code><span>5%</span></code></p><p><strong><span>Total: </span></strong><code><span>42%</span></code></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 244px; max-width: 1200px; max-height: 480px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/29344360-ndywriff-v4.webp" alt="puppet_extras.png" title="puppet_extras.png"></div></div><!----></div><!----></div></div><p><a rel="nofollow noopener" target="_blank" href="https://discord.gg/pDuBQhVkDM" title="https://discord.gg/pDuBQhVkDM"><span>Discord</span></a></p><p><a rel="nofollow noopener" target="_blank" href="https://jacorn.carrd.co/" title="https://jacorn.carrd.co/"><span>Website</span></a></p><p><code><span>Logo by:</span></code><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-46" class="popper -block"><a href="https://gamejolt.com/@Weshek" class=""><span><span>@Weshek</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1780186-crop18_0_462_444-ybr9fcwz-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><p></p><p><code><span>Graphic Design:</span></code><span> </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-65" class="popper -block"><a href="https://gamejolt.com/@JMHdev" class=""><span><span>@JMHdev</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/7490326-j3a7kmds-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-47" class="popper -block"><a href="https://gamejolt.com/@Jacorn" class=""><span><span>@Jacorn</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1075519-mt6dryqq-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></div></span><p></p><p><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fangame" class=""><span>#fangame</span></a><span> </span><a href="https://gamejolt.com/search?q=%23pointnclick" class=""><span>#pointnclick</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fredbear" class=""><span>#fredbear</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23forgottenatfredbears" class=""><span>#forgottenatfredbears</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fivenightsatfreddys" class=""><span>#fivenightsatfreddys</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fnaffangame" class=""><span>#fnaffangame</span></a></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

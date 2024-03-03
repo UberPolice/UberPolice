@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Five Nights at Freddy&#39;s: Bloodshed</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Five Nights at Freddy&#39;s: Bloodshed</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:08</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 16:19:49</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-"></a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-LyviN">LyviN</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/fnafbs/530247" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 122px; max-width: 900px; max-height: 180px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/6436766-ll-vck8by8p-v4.webp" alt="bloodshed1.png" title="bloodshed1.png"></div></div><!----></div><!----></div></div><h3><p><span>Five Nights at Freddy's: Bloodshed is a multiplayer, free roam PvP </span><strong><span>FNaF FANGAME </span></strong><span>where players choose their characters, and fight with each other.</span></p></h3><p><strong><span>Every character from the franchise will get their own abilities that you will use to fight.</span></strong></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 122px; max-width: 900px; max-height: 180px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/6436773-ll-fzptsciq-v4.webp" alt="wrn.png" title="wrn.png"></div></div><!----></div><!----></div></div><p><strong><span>THIS IS EARLY, EXPERIMENTAL ALPHA/BETA VERSION/STATE OF THE GAME.</span></strong></p><p><strong><span>REPORT ALL OF THE BUGS ON OUR </span></strong><strong><a rel="nofollow noopener" target="_blank" href="https://discord.gg/BcRwHBG" title="https://discord.gg/BcRwHBG"><span>DISCORD SERVER</span></a></strong><strong><span>!</span></strong></p><p><strong><span>Before playing, make sure you have a decent, modern PC. This game could be a challenge for your PC, because it's fully 3D real-time rendered game.</span></strong></p><p><strong><span>I don't think that you will be able to play this game on 2011 laptop.</span></strong></p><p><span>The game currently has 3 Gamemodes. Deathmatch, Team Deathmatch, and Remnant Madness.</span></p><p><span>For the first final game version, there will be 5 (FNaF 1) characters, but I am also planning updating the game, with new characters, maps, modes and other features in a (far) future.</span></p><p><span>There is probably also coming Story mode, but it's not even coming for the final release. Maybe like 2.0 version.</span></p><p><span>The game is being made in Unity 2021, using mirror-networking and FizzySteamworks.</span></p><p><span>There will </span><strong><span>never </span></strong><span>be any dedicated servers from my side. You have to host the servers on your own.</span></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item -link" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container" style="height: 211.307px; max-width: 765px; max-height: 265px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><a data-v-b1380c8e="" class="-img-container" href="https://trello.com/b/Z2YwMXTQ/fnaf-bloodshed" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/7967765-ll-dcgkcgfs-v4.webp" alt="https://trello.com/b/Z2YwMXTQ/…" title="https://trello.com/b/Z2YwMXTQ/…"></a></div><div data-v-b1380c8e="" class="-link-overlay"><small data-v-b1380c8e=""><a data-v-b1380c8e="" rel="nofollow noopener" target="_blank" href="https://trello.com/b/Z2YwMXTQ/fnaf-bloodshed" class="-link-overlay-display"><span data-v-b1380c8e="" class="jolticon jolticon-link -icon"></span> &nbsp; <span data-v-b1380c8e="">https://trello.com/b/Z2YwMXTQ/…</span></a></small></div></div><!----></div></div><p><a rel="nofollow noopener" target="_blank" href="https://trello.com/b/Z2YwMXTQ/fnaf-bloodshed" title="https://trello.com/b/Z2YwMXTQ/fnaf-bloodshed"><span>Check how far the next update is!</span></a></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 122px; max-width: 900px; max-height: 180px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/6436762-2nn5guqm-v4.webp" alt="steaml.png" title="steaml.png"></div></div><!----></div><!----></div></div><h3><p><strong><span>Game runs with Steam API as Spacewar - you need a Steam account.</span></strong></p></h3><h4><p><span>What is Spacewar? (Maybe I'm not even right)</span></p></h4><p><span>Spacewar is some kind of a test app provided by Steam. It is some kind of an example of possibilities and functionalities that are (I guess?) dedicated to game developers.</span></p><p><span>Unfortunately, Spacewar is also used for game piracy. Even if... it doesn't mean my game is some kind of a pirated game... Anyway... some people might think that you are playing pirated games if they will see Spacewar on your Steam profile.</span></p><p><span>I suggest creating a new Steam account if you want to be sure that nothing like this will happen. But people that would accuse you for game pirating are just ignorants and people that have no knowledge about Steam API and/or Spacewar.</span></p><h4><p><span>What about VAC Ban?</span></p></h4><p><span>VAC Ban is Valve Anti Cheat Ban - Spacewar isn't a game cheat.</span></p><p><span>I did never hear about any case of VAC Ban because of Spacewar, but if you are really afraid of that, you can make a new Steam account, just for the game.</span></p><p><span>But... I use Spacewar for many hours with my game, and I'm not banned. Same as my friends.</span></p><p><span>So I don't think there is anything to worry about.</span></p><p><span>But it's your choice. You can use your main account, make a new one, or just don't play my game at all if you are afraid of its safety.</span></p><hr><h3><p><a rel="nofollow noopener" target="_blank" href="https://discord.gg/BcRwHBG" title="https://discord.gg/BcRwHBG"><span>Join our Discord server!!</span></a></p></h3><p><a rel="nofollow noopener" target="_blank" href="https://discord.gg/BcRwHBG" title="https://discord.gg/BcRwHBG"><span>https://discord.gg/BcRwHBG</span></a></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item -link" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container" style="height: 406.667px; max-width: 3000px; max-height: 2000px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><a data-v-b1380c8e="" class="-img-container" href="https://discord.gg/BcRwHBG" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/6436698-ll-ve9hfndm-v4.webp" alt="https://discord.gg/BcRwHBG" title="https://discord.gg/BcRwHBG"></a></div><div data-v-b1380c8e="" class="-link-overlay"><small data-v-b1380c8e=""><a data-v-b1380c8e="" rel="nofollow noopener" target="_blank" href="https://discord.gg/BcRwHBG" class="-link-overlay-display"><span data-v-b1380c8e="" class="jolticon jolticon-link -icon"></span> &nbsp; <span data-v-b1380c8e="">https://discord.gg/BcRwHBG</span></a></small></div></div><!----></div></div><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 122px; max-width: 900px; max-height: 180px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/6436790-ll-njtjcfhf-v4.webp" alt="psbl.png" title="psbl.png"></div></div><!----></div><!----></div></div><ul><li><p><strong><span style="display: inline-block; white-space: normal;"></span></strong></p><div data-v-f0fc8035="" id="popper-10" class="popper -block"><strong><a href="https://gamejolt.com/@LyviN" class=""><span><span>@LyviN</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3835715-ryjnnkye-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></strong></div><strong><span> - Me, Game Creator - Project Manager, Developer, </span></strong><span>Concept</span><p></p></li><li><p><strong><span style="display: inline-block; white-space: normal;"></span></strong></p><div data-v-f0fc8035="" id="popper-11" class="popper -block"><strong><a href="https://gamejolt.com/@Igrisa" class=""><span><span>@Igrisa</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3838229-krkr8nwe-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></strong></div><strong><span> - </span></strong><span>2D Artist</span><p></p></li><li><p><strong><span style="display: inline-block; white-space: normal;"></span></strong></p><div data-v-f0fc8035="" id="popper-12" class="popper -block"><strong><a href="https://gamejolt.com/@GIOVyy" class=""><span><span>@GIOVyy</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/3183092-crop0_30_597_627-g5dtz2jv-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></strong></div><strong><span>  - </span></strong><span>Main tester and helper</span><p></p></li><li><p><strong><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@massybenkher" class=""><span title="@massybenkher"><span>@massybenkher</span></span></a></span></strong><span> - Voicelines Editing</span></p></li><li><p><strong><span style="display: inline-block; white-space: normal;"></span></strong></p><div data-v-f0fc8035="" id="popper-13" class="popper -block"><strong><a href="https://gamejolt.com/@KRONOS_527" class=""><span><span>@KRONOS_527</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4365121-crop0_55_501_556-d3whbrvj-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><img data-v-3bb5c963="" class="user-creator-badge" src="https://s.gjcdn.net/assets/f8475045.svg" style="position: absolute; right: -4px; bottom: -4px;"></span></span></a><!----></strong></div><strong><span> </span></strong><span>- Freddy Fazbear Voice (0.6.0+ version)</span><p></p></li><li><p><strong><span style="display: inline-block; white-space: normal;"></span></strong></p><div data-v-f0fc8035="" id="popper-14" class="popper -block"><strong><a href="https://gamejolt.com/@TheUnitedNates" class=""><span><span>@TheUnitedNates</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4721028-dhtdxejp-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></strong></div><strong><span> </span></strong><span>- Bonnie the Bunny Voice (0.6.0+ version)</span><p></p></li><li><p><strong><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@BronkTheDuck" class=""><span title="@BronkTheDuck"><span>@BronkTheDuck</span></span></a></span></strong><strong><span> </span></strong><span>- Foxy the Pirate Voice (0.6.0+ version)</span></p></li><li><p><strong><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@Sparkleeze" class=""><span title="@Sparkleeze"><span>@Sparkleeze</span></span></a></span></strong><span> - Chica the Chicken Voice (0.6.5+ Version)</span></p></li></ul><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 122px; max-width: 900px; max-height: 180px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/6436783-ll-7nurjpm7-v4.webp" alt="credits.png" title="credits.png"></div></div><!----></div><!----></div></div><ul><li><p><span>Scott Cawthon - Five Nights at Freddy's</span></p></li><li><p><a rel="nofollow noopener" target="_blank" href="https://www.deviantart.com/thudner/art/Team-VR-HW-Model-Fixes-Blender-Port-Download-811434355" title="https://www.deviantart.com/thudner/art/Team-VR-HW-Model-Fixes-Blender-Port-Download-811434355"><span>FNaF1 Models</span></a><span> by Scott/Steel Wool Studios, edited by TeamVR. Textures and Endo by RynFox, SFM Port by ThePixelYT, Blender port by Thudner</span></p><p><a rel="nofollow noopener" target="_blank" href="https://www.deviantart.com/patrykpl24/art/FNaF-1-Pack-Release-Blender-Eevee-Cycles-830118429" title="https://www.deviantart.com/patrykpl24/art/FNaF-1-Pack-Release-Blender-Eevee-Cycles-830118429"><span>FNaF1 Foxy Model </span></a><span>by Scott/Steel Wool Studios, edited by TeamVR. Textures and Endo by RynFox, SFM Port by ThePixelYT, Blender Inital Port by Thudner, Blender 2.8 Port by Patryk24PL</span></p></li><li><p><span>OST and SFX from FNaF AR: Special Delivery</span></p></li><li><p><strong><span style="display: inline-block; white-space: normal;"></span></strong></p><div data-v-f0fc8035="" id="popper-15" class="popper -block"><strong><a href="https://gamejolt.com/@Synoxsis" class=""><span><span>@Synoxsis</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4112639-crop140_151_627_638-nuyfjdkq-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></strong></div><strong><span> - </span></strong><span>Menu &amp; Lobby Music</span><p></p></li></ul><p><strong><span>Full credits are available in the game</span></strong></p><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 122px; max-width: 900px; max-height: 180px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/6436794-ll-isuffcpz-v4.webp" alt="req.png" title="req.png"></div></div><!----></div><!----></div></div><p><span>(not final)</span></p><ul><li><p><span>Windows 8/8.1 (64-bit), Windows 10 (64-bit) or Windows 11 (64-bit)</span></p></li><li><p><span>Stable internet connection (with a working router, not a mobile hotspot), a fast one if you want to host the server.</span></p></li><li><p><span>4 GB RAM</span></p></li><li><p><span>Decent, modern graphics card with DX10 (shader model 4.0) capabilities.</span></p></li><li><p><span>Other decent components like CPU.</span></p></li><li><p><span>GameJolt Account</span></p></li><li><p><span>Steam - logged into, and running in the background</span></p></li></ul><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 122px; max-width: 900px; max-height: 180px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/6436796-ll-b94xgece-v4.webp" alt="cpr.png" title="cpr.png"></div></div><!----></div><!----></div></div><h3><p><em><span>LyviNSFM@gmail.com</span></em></p></h3><hr><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 122px; max-width: 900px; max-height: 180px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/6436799-ll-4g6peha9-v4.webp" alt="tags.png" title="tags.png"></div></div><!----></div><!----></div></div><p><a href="https://gamejolt.com/search?q=%23fangame" class=""><span>#fangame</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23action" class=""><span>#action</span></a><span> </span><a href="https://gamejolt.com/search?q=%23multiplayer" class=""><span>#multiplayer</span></a><span> </span><a href="https://gamejolt.com/search?q=%23scifi" class=""><span>#scifi</span></a><span> </span><a href="https://gamejolt.com/search?q=%23survival" class=""><span>#survival</span></a><span> </span><a href="https://gamejolt.com/search?q=%23pvp" class=""><span>#pvp</span></a><span> </span><a href="https://gamejolt.com/search?q=%23deathmatch" class=""><span>#deathmatch</span></a><span> </span><a href="https://gamejolt.com/search?q=%23animatronic" class=""><span>#animatronic</span></a><span> </span><a href="https://gamejolt.com/search?q=%23animatronicvsanimatronic" class=""><span>#animatronicvsanimatronic</span></a><span> </span><a href="https://gamejolt.com/search?q=%23unity" class=""><span>#unity</span></a><span> </span><a href="https://gamejolt.com/search?q=%23unity3d" class=""><span>#unity3d</span></a><span> </span><a href="https://gamejolt.com/search?q=%233d" class=""><span>#3d</span></a><span> </span><a href="https://gamejolt.com/search?q=%23freeroam" class=""><span>#freeroam</span></a><span> </span><a href="https://gamejolt.com/search?q=%23thirdperson" class=""><span>#thirdperson</span></a><span> </span><a href="https://gamejolt.com/search?q=%23thirdpersonview" class=""><span>#thirdpersonview</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fight" class=""><span>#fight</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fan" class=""><span>#fan</span></a><span> </span><a href="https://gamejolt.com/search?q=%23game" class=""><span>#game</span></a><span> </span><a href="https://gamejolt.com/search?q=%23Five" class=""><span>#Five</span></a><span> </span><a href="https://gamejolt.com/search?q=%23Nights" class=""><span>#Nights</span></a><span> </span><a href="https://gamejolt.com/search?q=%23at" class=""><span>#at</span></a><span> </span><a href="https://gamejolt.com/search?q=%23Freddys" class=""><span>#Freddys</span></a><span> </span><a href="https://gamejolt.com/search?q=%23FiveNightsatFreddys" class=""><span>#FiveNightsatFreddys</span></a><span> </span><a href="https://gamejolt.com/search?q=%23battle" class=""><span>#battle</span></a><span> </span><a href="https://gamejolt.com/search?q=%23servers" class=""><span>#servers</span></a><span> </span><a href="https://gamejolt.com/search?q=%23mirror" class=""><span>#mirror</span></a><span> </span><a href="https://gamejolt.com/search?q=%23networking" class=""><span>#networking</span></a><span> </span><a href="https://gamejolt.com/search?q=%23mirrornetworking" class=""><span>#mirrornetworking</span></a><span> </span><a href="https://gamejolt.com/search?q=%23discordserver" class=""><span>#discordserver</span></a><span> </span><a href="https://gamejolt.com/search?q=%23competitive" class=""><span>#competitive</span></a><span> </span><a href="https://gamejolt.com/search?q=%23rivalry" class=""><span>#rivalry</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fizzySteamworks" class=""><span>#fizzySteamworks</span></a><span> </span><a href="https://gamejolt.com/search?q=%23UnityEngine" class=""><span>#UnityEngine</span></a><span> </span><a href="https://gamejolt.com/search?q=%23Unity" class=""><span>#Unity</span></a><span> </span><a href="https://gamejolt.com/search?q=%23Unity2020" class=""><span>#Unity2020</span></a><span> </span><a href="https://gamejolt.com/search?q=%232020" class=""><span>#2020</span></a><span> </span><a href="https://gamejolt.com/search?q=%232021" class=""><span>#2021</span></a><span> </span><a href="https://gamejolt.com/search?q=%23killing" class=""><span>#killing</span></a><span> </span><a href="https://gamejolt.com/search?q=%23destroying" class=""><span>#destroying</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fighting" class=""><span>#fighting</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fnaf" class=""><span>#fnaf</span></a><span> </span><a href="https://gamejolt.com/search?q=%23fps" class=""><span>#fps</span></a><span> </span><a href="https://gamejolt.com/search?q=%23firstperson" class=""><span>#firstperson</span></a><span> </span><a href="https://gamejolt.com/search?q=%23firstpersonview" class=""><span>#firstpersonview</span></a></p><p><code><em><strong><span>SOMETHING IS COMING</span></strong></em></code></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
