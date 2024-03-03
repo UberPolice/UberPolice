@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>THE STORY: Pillars Of Silence</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> THE STORY: Pillars Of Silence</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:07</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:54:31</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-"></a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-False Animatronics Games">False Animatronics Games</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/PillarsOfSilence/512269" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 203.333px; max-width: 3000px; max-height: 1000px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(51, 40, 66); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/7466729-wzptdj7n-v4.webp" alt="story.png" title="story.png"></div></div><!----></div><!----></div></div><p><span>You're playing as a 16 year old girl - Bonnie Smith, who wants to find out the truth about her family. She was adopted by the last person in the Smith family (Edward Smith) in 2000. With time Edward told her about Fritz Smith and Hippo's Restaurant pizzeria, but he doesn't know everything. Three years have passed and Bonnie still wants to know the truth. That's why she decides to come to the abandoned and forgotten location of Hippo's Restaurant. But she wasn't expecting Fritz to still be alive</span></p><p><span>The game takes place in various locations related to Fritz's past, you'll have to find information about who he was. With time you will learn more about his past, you will find out what he had done, why Hippo's Restaurant was forgotten, and you'll get to know a dark secret of the Smith family</span></p><p><span>This game also shows the end of the deal with 'Snake'</span></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 203.333px; max-width: 3000px; max-height: 1000px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(101, 44, 42); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/7466731-brqumudk-v4.webp" alt="backstory.png" title="backstory.png"></div></div><!----></div><!----></div></div><p><span>When Freddy Fazbear's pizzeria was closed, a man appeared - Lucas Smith, who bought the restaurant from Fazbear Entertainment and repurposed it. He created Hippo's Restaurant with brand new animatronic characters, made from the Toy animatronics parts. It was going alright at first, but soon enough weird things started happening. There were no murders but there were kidnappings, which Lucas didn't know anything about. He could have never known that his son would become the second William Afton.</span></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 244px; max-width: 3000px; max-height: 1200px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(32, 41, 59); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/7323718-pmb9ef42-v4.webp" alt="fritznew2.png" title="fritznew2.png"></div></div><!----></div><!----></div></div><p><span>Fritz Smith is the main antagonist of the game. He used to be a normal person, but past incidents drove him to insanity... You are trying to find out the truth about him. He had once committed crimes as a human and, as punishment, he became a victim of a trap he had created. However, he is still alive - his body might be dead but his brain is connected to the AI, developed by himself.</span><br><br><span>--------------------------------------------------------------------------------------</span><br><br><em><strong><span>Hardware requirements RECOMMENDED</span></strong></em><br><br><em><strong><span>Processor: i5 6600 or AMD FX 8350 or better</span></strong></em></p><p><em><strong><span>Graphics Card: GTX 980 ti or better</span></strong></em></p><p><em><strong><span>Ram: 8GB or more</span></strong></em></p><p><em><strong><span>OS: Windows 7 or better</span></strong></em></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 203.333px; max-width: 3000px; max-height: 1000px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(78, 88, 30); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/700/7466596-hwrgxxf6-v4.webp" alt="credits.png" title="credits.png"></div></div><!----></div><!----></div></div><p><span>Thg Game is created by FalseAnimatronicsStudio (</span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-10" class="popper -block"><a href="https://gamejolt.com/@Draxis" class=""><span><span>@Draxis</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4107416-crop413_386_1227_1200-qrfcjczi-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span> and </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-11" class="popper -block"><a href="https://gamejolt.com/@hoshi25" class=""><span><span>@hoshi25</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1277982-crop71_0_718_647-qdpvfjzh-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span>) and their friends</span><p></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-12" class="popper -block"><a href="https://gamejolt.com/@Draxis" class=""><span><span>@Draxis</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4107416-crop413_386_1227_1200-qrfcjczi-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>  (coding + plot + models + project management)</span><p></p><p><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-13" class="popper -block"><a href="https://gamejolt.com/@hoshi25" class=""><span><span>@hoshi25</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1277982-crop71_0_718_647-qdpvfjzh-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>  (plot + ideas + project management + subtitles)</span><p></p><p><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@thePhantomAfton88" class=""><span title="@thePhantomAfton88"><span>@thePhantomAfton88</span></span></a></span><span>: models (modeler left the project)</span></p><p><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@AlikMaker" class=""><span title="@AlikMaker"><span>@AlikMaker</span></span></a></span><span>: music</span></p><p><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@PCG_alvin_toy_bonnie" class=""><span title="@PCG_alvin_toy_bonnie"><span>@PCG_alvin_toy_bonnie</span></span></a></span><span>: music + animations</span></p><p><span>Playtesters: </span><span style="display: inline-block; white-space: normal;"><a href="https://gamejolt.com/@MikeEmily" class=""><span title="@MikeEmily"><span>@MikeEmily</span></span></a></span><span>,  </span><span style="display: inline-block; white-space: normal;"></span></p><div data-v-f0fc8035="" id="popper-14" class="popper -block"><a href="https://gamejolt.com/@Niceriot" class=""><span><span>@Niceriot</span>   <span style="position: relative; display: inline-block;"><img src="https://secure.gravatar.com/avatar/de73b6fad5aef0f624ca30b21f06918c?s=200&amp;r=pg&amp;d=https%3A%2F%2Fs.gjcdn.net%2Fimg%2Fno-avatar-3.png" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-15" class="popper -block"><a href="https://gamejolt.com/@Draxis" class=""><span><span>@Draxis</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/4107416-crop413_386_1227_1200-qrfcjczi-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><span>, </span><span style="display: inline-block; white-space: normal;"><div data-v-f0fc8035="" id="popper-16" class="popper -block"><a href="https://gamejolt.com/@hoshi25" class=""><span><span>@hoshi25</span>   <span style="position: relative; display: inline-block;"><img src="https://m.gjcdn.net/user-avatar/200/1277982-crop71_0_718_647-qdpvfjzh-v4.webp" class="img-responsive" alt="" style="display: inline; height: 1.5em; border-radius: 50%;"><!----></span></span></a><!----></div></span><p></p></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

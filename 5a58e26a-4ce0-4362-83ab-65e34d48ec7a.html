@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Project Playtime</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Project Playtime</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>1d 13h 2m 0s</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-2/12/2024">2/12/2024</a> 12:53:26</TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 11:48:58</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 11:57:50</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Played">Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Steam">Steam</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-12/12/2022">12/12/2022</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-Mob Entertainment">Mob Entertainment</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_publisher_ascending_name_ascending.html#quicklink-Mob Entertainment">Mob Entertainment</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Co-Operative">Co-Operative</a><br/><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Multiplayer">Multiplayer</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://store.steampowered.com/app/1961460/PROJECT_PLAYTIME" target="_blank">Steam</a><br/><a href="https://www.youtube.com/channel/UCXqV4yoyC_mmZye6VbKFPeQ" target="_blank">YouTube</a><br/><a href="https://twitter.com/mobgamesstudios" target="_blank">Twitter</a><br/><a href="https://www.twitch.tv/directory/game/Project:%20Playtime" target="_blank">Twitch</a><br/><a href="https://www.mobentertainment.com/project-playtime" target="_blank">Official</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					PROJECT: PLAYTIME is a free-to-play multiplayer horror game where six players attempt to create one giant toy while surviving a terrifying monster that roams the toy factory. A seventh player controls the monster and is given only one goal: Find and kill everyone.<h2 class="bb_tag">Can you hear us?</h2>Welcome to your job as a Resource Extraction Specialist here at Playtime Co., the largest toy company in the world! You've been assigned to a special unit responsible for extracting giant toy parts from closed off areas of the factory. The parts are locked behind cryptic puzzles and guarded by freakish monsters that've taken over these once magical locations. Retrieve the parts, avoid any kind of contact with the monsters, and most importantly... don't die.<h2 class="bb_tag">Can you see this?</h2>Prepare yourself for a 6v1 battle of survival. Six players will take the role of a Survivor. Together, they must solve puzzles and forge together a toy of epic size, all while trying to stay alive. One player will take on the role of the Monster. There are several characters to choose from, all offering a unique set of skills used to catch and kill their prey.<h2 class="bb_tag">Give us a sign.</h2>• <strong>THE GRABPACK</strong> - Survivors wield a powerful tool known as the GrabPack. With two long, extendable arms, you can do most anything. Whether it be carrying a heavy object, grabbing something from far away, completing puzzles, or gripping doors to slam them shut in the face of the monster, the GrabPack is more than capable.<br><br>• <strong>MANIC MONSTERS</strong> - As a monster, you have three distinct characters to choose from, each one a living, gargantuan monstrosity based off a Playtime Co. toy. Huggy Wuggy, Mommy Long Legs, and newcomer Boxy Boo all offer their own sets of abilities and unique styles of play. Whether you wish to be a manic brute with Huggy, quick and nimble with Mommy, or a springy hunter with Boxy, there's a monster to fit the bill.<br><br>• <strong>SABOTAGE</strong> - Monsters will always want the element of surprise. Using Toy Tickets (Toy Tickets are an in-game currency that can only be earned by playing the game. You cannot purchase these tickets, there is no pay-to-win), you can purchase and upgrade new abilities called Sabotages. These allow you to get the jump on players. Use these to blind the survivors, boobytrap their path, destroy their GrabPacks, and so much more. <br><br>• <strong>FEAR FACTORY</strong> - Playtime Co. is the king of the Toy manufacturing industry- and you're inside it. Explore two massive maps that feature many different sections of this crooked factory. A state-of-the-art theater with statues of fake gold, and a manufacturing area where toys are a'plenty.<br><br>• <strong>BETTER &amp; STRONGER</strong> - Survivors won't be limited to any default abilities. Stretch further and build your own class with Perks! You can purchase and upgrade perks with Toy Tickets (Toy Tickets are an in-game currency that can only be earned by playing the game. You cannot purchase these tickets, there is no pay-to-win). With these perks, you can be whatever type of Survivor you dream of. Be it a Puzzle Master or Medic, Speed Demon or Shadow Walker; however you want to play is covered.<br><br>• <strong>LOOKING GOOD</strong> - Wanna take the looks of your character to the next level? PROJECT: PLAYTIME offers a rotating shop with new cosmetics constantly, and a seasonal TOY BOX, which offers 100 levels of cosmetic glory. Look fantastic as you fight to survive. Or, if you're the monster, look fantastic as you rip everyone apart.<br><br>PROJECT: PLAYTIME has lots to offer... and much more to come.<br><br>Won't yo̷͔̎u̷͉̅ p̷͎̫̜̍̄̏̅l̸̨͉̿̄͝aå̴̡͇̪̽̑͗̉͜ÿ̴̰̯́́͂͑͌͠ ̵̡̭̪̖̣̰̿͑͛f̸̟͒̅͐͠a̸̫̬̻̹͘i̸̛̤̮͓̜͔̰̎̓̎̿r̶͚̣̘͛͝.̷͍̻̙͔̄̽̊̈́͗̕<h2 class="bb_tag">THE BIGGER BODIES INITIATIVE WILL FAIL.</h2><h2 class="bb_tag">WE WILL PREVAIL.</h2><h2 class="bb_tag">STAY ALERT.</h2><h2 class="bb_tag">WE WILL BE IN TOUCH.</h2>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

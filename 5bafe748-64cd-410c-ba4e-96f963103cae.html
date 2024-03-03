@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Viola: The Heroine&#39;s Melody</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0.55">
+		<style>
+body {
+  background: #24282f;                                /* main background color in case of no image */
+  font-family: 'Arial';                               /* font arial which should be readable */
+  Height:100%;                                        /* set width to 100% also needed for background */
+  margin:0px;                                         /* hide any margins */
+  background-size: cover;                             /* size background image without distortion along width and height */
+  background-repeat: no-repeat;                       /* no background repeat */
+  Background-attachment:fixed;                        /* needed to make background image behave properly */
+  overflow-y:hidden;                                  /* no normal overflow, only our containers (details & description) will overflow or have scrollbar * /
+}
+ 
+html {
+  height:100%;                                        /* need to set this to 100% to make the background behave propertly */
+}
+
+.title h2 {
+  padding-left: 25px;                                 /* left padding */
+  color: #ccc;                                        /* text color */
+  margin: 0;                                          /* no margins */
+  background-color: black;                            /* black background */
+  vertical-align: middle;                             /* align vertical middle */
+  height: 48px;
+}
+
+.title {
+  width: 100%;                                      /* title container width 100% */
+  grid-column: 1 / span 3;                          /* column 1 but spans 3 */
+  grid-row: 1;                                      /* row 1 */
+  height: 48px;
+}
+.cards {                                              /* empty not used here */
+}
+
+.card {
+  display: grid;                                    /* container which is the grid */
+  grid-template-columns: min-content;               /* size columns to minimum content */
+  grid-template-rows: min-content min-content;      /* size rows to minimum content */
+  height: 100vh;                                    /* 100% viewport height */
+}
+
+.detailstitle{
+  grid-column: 1;                                     /* 1st column */
+  grid-row: 2;                                        /* 2nd row */
+  width: 350px;                                       /* fixed width set to same size as details */
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+}
+
+.details {
+  padding-left: 10px;                                 /* some padding left */
+  padding-right: 10px;                                /* some padding right */
+  color: #ccc;
+  grid-column: 1;                                      /* 1st column */
+  grid-row: 3;                                         /* 3rd row of grid */
+  width: 350px;                                        /* fixed width of details */
+  overflow-y: auto;                                     /* add vertical scrollbar if needed */
+  overflow-x:hidden;                                   /* don't overflow on x axis (no horz scrollbar) */
+ }
+ 
+.detailstitle h3,
+.descriptiontitle h3 {
+  border-bottom: 1px solid #ccc;                     /* titles of description details should have line under it */
+  padding: 5px;                                      /* add some padding */
+  color: #ccc;                                       /* text color of the titles */
+}
+
+.detailstable th, td {
+  border: 0px;                                         /* no borders on td, th elements */
+  color: #ccc;                                         /* details table text color */
+}
+
+.detailstable td {
+  text-align: left;                                    /* align text left */
+  vertical-align: top;                                 /* align top */
+}
+
+.detailstable {
+  width: 100%;                                         /* set to full width of details */
+  padding: 5px;                                        /* add some padding */
+}
+
+.descriptiontitle {
+	grid-column: 2;                                    /* column 2 of grid */
+	grid-row: 2;                                       /* row 2 of grid */
+	padding-left: 10px;                                /* some padding left */
+	padding-right: 10px;                               /* some padding right */
+}
+
+
+.description {
+  color: #ccc;                                       /* text color */
+  grid-column: 2;                                    /* 2nd column of grid */
+  grid-row: 3;                                       /* 3rd row of grid */
+  overflow-y: auto;                                  /* overflow-y automatic (for adding scrollbar) */
+  overflow-x:hidden;                                 /* prevent horizontal scrollbar */
+  padding-left: 10px;                                /* some padding left */
+  padding-right: 10px;                               /* some padding right */
+}
+
+.description img {
+  max-width: 100%;                                   /* make sure images don't overflow in width to prevent scrollbars */
+}
+
+.MenuButton {
+  border: none;                                        /* Remove borders */
+  outline: none;                                       /* Remove outline */
+  background-color: #888;                              /* Set a background color */
+  color: #000;                                         /* Text color */
+  padding: 5px;                                        /* Some padding */
+  border-radius: 4px;                                  /* Rounded corners, border */
+  font-size: 20px;                                     /* Increase font size */
+  cursor:pointer;                                         /* Add a mouse pointer on hover */
+  margin-right: 20px;                                  /* to have some space on right side before next element */
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+
+.MenuButton:hover {
+  background-color: #777;                              /* Add a dark-grey background on hover */
+  color: #CCC;                                         /* Text color */
+}
+
+a {
+ text-decoration: none;                                /* no text underline in links */
+}
+a:link {
+  color: #CCC;                                         /* unvisited link color */
+}
+a:visited {
+  color: #CCC;                                         /* visited link color */
+}
+a:hover {
+  color: #EEE;                                         /* mouse over link color */
+  text-decoration: underline;                          /* add text underline in links when mouse over */
+}
+a:active {
+  color: #CCC;                                         /* selected link color */
+}
+
+                                                       /* scrollbars W3C standard that is currently Firefox-only */
+* {
+  scrollbar-width: thin;                               /* small width */
+  scrollbar-color: #888 transparent;                   /* trackbar color + transparant background */
+}
+
+                                                       /* scrollbars on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;                                         /* small width */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;                             /* background color track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AAA;                              /* background */
+  border-radius: 20px;                                 /* rounded corner, border */
+  border: 3px solid #888;                              /* add the border */
+}
+
+		</style>
+	</head>
+	<body style="background-image: linear-gradient(to bottom, #24282f, rgba(100,100,100,0.73))">
+		<div class="cards">
+			<div class="card">
+				<div class="title">
+					<h2><button onclick="window.history.back()" class="MenuButton">Back</button> Viola: The Heroine&#39;s Melody</h2>
+				</div>
+				<div class="detailstitle">
+				<H3>Details</H3>
+				</div>
+				<div class="details">
+					<div style="overflow: auto;">
+						<TABLE class="detailstable">
+							<col style="width:50%" />
+							<col style="width:50%" />							<TR>
+								<TD>Playtime</TD>
+								<TD>Not Played</TD>
+							</TR>
+							<TR>
+								<TD>Last Activity</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_lastactivity_descending_name_ascending.html#quicklink-Never">Never</a> </TD>
+							</TR>
+							<TR>
+								<TD>Added</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_added_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 15:45:08</TD>
+							</TR>
+							<TR>
+								<TD>Modified</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_modified_descending_name_ascending.html#quicklink-3/2/2024">3/2/2024</a> 16:01:22</TD>
+							</TR>
+							<TR>
+								<TD>Completion Status</TD>
+								<TD><a href="default%20list%20text_completionstatus_ascending_name_ascending.html#quicklink-Not Played">Not Played</a></TD>
+							</TR>
+							<TR>
+								<TD>Library</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_library_ascending_name_ascending.html#quicklink-Unknown">Unknown</a></TD>
+							</TR>
+							<TR>
+								<TD>Source</TD>
+								<TD><a href="default%20list%20text_source_ascending_name_ascending.html#quicklink-Game Jolt">Game Jolt</a></TD>
+							</TR>
+							<TR>
+								<TD>Platform</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_platform_ascending_name_ascending.html#quicklink-PC (Windows)">PC (Windows)</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Release Date</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_releasedate_descending_name_ascending.html#quicklink-2/17/2021">2/17/2021</a> </TD>
+							</TR>
+							<TR>
+								<TD>Community Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_communityscore_descending_name_ascending.html#quicklink-70">70</a></TD>
+							</TR>
+							<TR>
+								<TD>Critic Score</TD>
+								<TD><a href="index.html#quicklink-71">71</a></TD>
+							</TR>
+							<TR>
+								<TD>User Score</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_userscore_descending_name_ascending.html#quicklink-"></a></TD>
+							</TR>
+							<TR>
+								<TD>Genre</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Action">Action</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Adventure">Adventure</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/><a href="default%20list%20text%20combobox%20quicklinks_genre_ascending_name_ascending.html#quicklink-rpg">rpg</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Developer</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_developer_ascending_name_ascending.html#quicklink-OhThirtyFour">OhThirtyFour</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Publisher</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_publisher_ascending_name_ascending.html#quicklink-Jelle van Doorne">Jelle van Doorne</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Feature</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_feature_ascending_name_ascending.html#quicklink-Single Player">Single Player</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Links</TD>
+								<TD><a href="https://gamejolt.com/games/viola/496547" target="_blank">Game Jolt Store Page</a><br/></TD>
+							</TR>
+							<TR>
+								<TD>Tag</TD>
+								<TD><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-2D">2D</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-2D Platformer">2D Platformer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Action">Action</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Adventure">Adventure</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Cute">Cute</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Family Friendly">Family Friendly</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Female Protagonist">Female Protagonist</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Funny">Funny</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Indie">Indie</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-JRPG">JRPG</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-LGBTQ+">LGBTQ+</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Pixel Graphics">Pixel Graphics</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Platformer">Platformer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Rhythm">Rhythm</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-RPG">RPG</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Side Scroller">Side Scroller</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Singleplayer">Singleplayer</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Story Rich">Story Rich</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Tactical RPG">Tactical RPG</a><br/><a href="default%20list%20text%20combobox%20quicklinks_tag_ascending_name_ascending.html#quicklink-Turn-Based Combat">Turn-Based Combat</a><br/></TD>
+							</TR>
+						</TABLE>
+					</div>
+				</div>
+				<div class="descriptiontitle">
+					<H3>Description</H3>
+				</div>
+				<div class="description">
+					<div data-v-d4f9961b=""><h3><p><a rel="nofollow noopener" target="_blank" href="https://store.steampowered.com/app/988310/Viola/" title="https://store.steampowered.com/app/988310/Viola/"><span>Get Viola: The Heroine's Melody on Steam!</span></a></p></h3><p><span>After failing at violin practice for the hundredth time, Viola gets trapped inside her instrument's fantastical world. She's joined by a set of strange, colorful friends, as she journeys through the lands of magic, monsters and music... Searching for her way back home.</span></p><h4><p><span>FEATURES</span></p></h4><ul><li><p><span>Play as the young Viola, who is trapped inside the fantasy world of a magic violin.</span></p></li><li><p><span>Create your own party from a colorful cast of 10+ characters!</span></p></li><li><p><span>Platforming and RPG battles seamlessly combined in a beautiful pixel art package.</span></p></li><li><p><span>Play musical instruments to unlock passages, secrets, and more!</span></p></li><li><p><span>A humorous and emotional story about learning to love yourself.</span></p></li><li><p><span>A labor of love made entirely by a single person!</span></p></li></ul><p><a href="https://gamejolt.com/search?q=%23rpg" class=""><span>#rpg</span></a><span> </span><a href="https://gamejolt.com/search?q=%23platformer" class=""><span>#platformer</span></a><span> </span><a href="https://gamejolt.com/search?q=%23adventure" class=""><span>#adventure</span></a><span> </span><a href="https://gamejolt.com/search?q=%23retro" class=""><span>#retro</span></a><span> </span><a href="https://gamejolt.com/search?q=%23pixelart" class=""><span>#pixelart</span></a><span> </span><a href="https://gamejolt.com/search?q=%23music" class=""><span>#music</span></a></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 138px; max-width: 452px; max-height: 138px; width: 452px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://m.gjcdn.net/content/500/3253407-ll-7xyrrs2z-v4.webp" alt="0_34_characters.png" title="0_34_characters.png"></div></div><!----></div><!----></div></div><hr><h4><p><span>A Love Letter to JRPGs</span></p></h4><p><span>Viola: The Heroine's Melody pulls inspiration from many classic JRPGs. Lufia, the Mario &amp; Luigi series, Final Fantasy, and even modern indie takes on the genre such as Undertale and Lisa. Turn-based battles, a ton of recruitable characters, and a personal story to sink your teeth into: Viola has all of this and more. However, Viola is not a passive RPG. Attacks require the player to time their button taps, and to unleash spells you'll have to follow a series of rhythm game-esque inputs.</span></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 342.366px; max-width: 955px; max-height: 536px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg"><div data-v-7118f6f7="" style="background-color: rgb(74, 125, 86); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/7/47/496547/media/game-description/arti_attack_1-uapvzftj.gif" alt="arti_attack_1.gif" title="arti_attack_1.gif"></div></div><!----></div><!----></div></div><h4><p><span>Exploration Made Fun Again</span></p></h4><p><span>On top of being an RPG, Viola: The Heroine's Melody is a side-scrolling platformer! With walljumps and triple jumps, springs and cannons, you can explore each level and uncover every little secret. Find more potions, or gems to equip and customize each character's stats! And don't worry about random encounters: each monster is visible in the level. Don't feel like fighting? Just jump around and find another path!</span></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 270px; max-width: 480px; max-height: 270px; width: 480px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(119, 127, 127); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/7/47/496547/media/game-description/level3_platforming_2-rejhfutd.gif" alt="level3_platforming_2.gif" title="level3_platforming_2.gif"></div></div><!----></div><!----></div></div><h4><p><span>Raise the Bar</span></p></h4><p><span>Music is key to Viola. Every character in your party has their own instrument, and they'll eagerly play along with the songs you learn along your journey. All the songs have their own magical effect, like summoning a bird, creating a magical campfire, unlocking secret pathways... If you've ever played a Zelda game, you'll feel right at home.</span></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 344.078px; max-width: 640px; max-height: 361px; width: 610px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(192, 154, 146); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/7/47/496547/media/game-description/music_playing_2-yybhr3nt.gif" alt="music_playing_2.gif" title="music_playing_2.gif"></div></div><!----></div><!----></div></div><h4><p><span>Learn to Love Yourself</span></p></h4><p><span>Viola: The Heroine's Melody</span><em><span> </span></em><span>is about Viola's journey. It's one of strange characters, powerful monsters, fantastical locations and plenty of laughs. But Viola's journey isn't just about going home: it's also about learning. That it's okay not to be perfect. That it's okay to grieve. That you deserve love, and that sometimes that love starts with learning to love yourself.</span></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 269px; max-width: 480px; max-height: 269px; width: 480px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(100, 98, 115); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/7/47/496547/media/game-description/gravestory_after_4-zdvxt62u.gif" alt="gravestory_after_4.gif" title="gravestory_after_4.gif"></div></div><!----></div><!----></div></div><h4><p><span>Like a Rainbow with Gold at Both Ends</span></p></h4><p><span>Many people are unable to see themselves in the things they watch, read or play. Viola is filled with characters of all kinds: different colors, different loves, different ideals. If you've ever felt out of place, and like you couldn't connect with the characters you've seen before, Viola is for you.</span></p><div data-v-6ec866f9="" data-v-b1380c8e="" class="base-content-component"><!----><div data-v-b1380c8e="" class="media-item" style="align-items: center;"><div data-v-b1380c8e="" class="media-item-container -zoomable" style="height: 270px; max-width: 480px; max-height: 270px; width: 480px;"><div data-v-7118f6f7="" data-v-b1380c8e="" class="media-item-backdrop -lg -backdrop"><div data-v-7118f6f7="" style="background-color: rgb(50, 39, 43); position: absolute; inset: 1px; z-index: -1; width: auto; border-radius: inherit; opacity: 1;"></div><div data-v-b1380c8e="" class="-img-container" rel="nofollow noopener" target="_blank"><img data-v-b1380c8e="" class="img-responsive content-image" src="https://i.gjcdn.net/public-data/games/7/47/496547/media/game-description/afterboss_two_story_3-nmmtxmhk.gif" alt="afterboss_two_story_3.gif" title="afterboss_two_story_3.gif"></div></div><!----></div><!----></div></div></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
