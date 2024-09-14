@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+body {
+  font-family: 'Sixtyfour', sans-serif;
+  color: white;
+  background-color: black;
+  background-image: url('matrix.gif');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+img {
+  border-radius: 10px;
+}
+
+video {
+  border-radius: 10px;
+}
+
+.burple {
+  cursor: pointer;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: blue;
+  background: #444444;
+  color: white;
+  font-size: 120%;
+  max-width: 60%;
+  width: 300px;
+  height: 50px;
+}
+
+.burple:hover {
+  background: #96969;
+  color: #9A9B9C;
+}
+
+.discord-pfp {
+  margin: auto;
+  width: 410px;
+  height: 210px;
+  border-radius: 10px;
+}
+
+.redbtn {
+  cursor: pointer;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: red;
+  background: #444444;
+  color: white;
+  font-size: 120%;
+  max-width: 60%;
+  width: 290px;
+  height: 50px;
+}
+
+.redbtn:hover {
+  background: #96969;
+  color: #9A9B9C;
+}
+
+.greenbtn {
+  cursor: pointer;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: green;
+  background: #444444;
+  color: white;
+  font-size: 120%;
+  max-width: 90%;
+  width: 640px;
+  height: 50px;
+}
+
+.greenbtn:hover {
+  background: #96969;
+  color: #9A9B9C;
+}
+
+.bluebtn {
+  cursor: pointer;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: blue;
+  background: #444444;
+  color: white;
+  font-size: 120%;
+  max-width: 60%;
+  width: 290px;
+  height: 50px;
+}
+
+.bluebtn:hover {
+  background: #96969;
+  color: #9A9B9C;
+}
+
+.yellowbtn {
+  cursor: pointer;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: yellow;
+  background: #444444;
+  color: white;
+  font-size: 120%;
+  max-width: 60%;
+  width: 290px;
+  height: 50px;
+}
+
+.yellowbtn:hover {
+  background: #96969;
+  color: #9A9B9C;
+}
